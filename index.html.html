@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Purandhar Achari Banthikatla — DevOps &amp; Cloud Engineer</title>
+<meta name="description" content="Purandhar Achari Banthikatla — AWS Certified Cloud Practitioner and DevOps Engineer specializing in CI/CD, Docker/Kubernetes, and Infrastructure as Code across AWS, GCP, and Azure.">
+<meta property="og:title" content="Purandhar Achari Banthikatla — DevOps & Cloud Engineer">
+<meta property="og:description" content="AWS Certified Cloud Practitioner with hands-on DevOps experience automating CI/CD pipelines, containerizing services, and provisioning infrastructure as code.">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Purandhar Achari Banthikatla — DevOps & Cloud Engineer">
+<meta name="twitter:description" content="AWS Certified Cloud Practitioner with hands-on DevOps experience automating CI/CD pipelines, containerizing services, and provisioning infrastructure as code.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%230A2540'/%3E%3Ctext x='50' y='62' font-family='monospace' font-size='40' font-weight='700' fill='%234FD1C5' text-anchor='middle'%3EPAB%3C/text%3E%3C/svg%3E">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+  :root{
+    --navy: #0A2540;
+    --navy-deep: #061a30;
+    --line: #96C4E8;
+    --line-dim: rgba(127,179,217,0.28);
+    --grid: rgba(127,179,217,0.07);
+    --paper: #EAF2F8;
+    --cyan: #4FD1C5;
+    --amber: #F2A65A;
+    --panel: rgba(234,242,248,0.03);
+    --panel-border: rgba(127,179,217,0.35);
+    --font-display: 'Space Grotesk', sans-serif;
+    --font-body: 'Inter', sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+  }
+
+  *{ box-sizing: border-box; margin:0; padding:0; }
+
+  html{ scroll-behavior: smooth; }
+
+  body{
+    background: var(--navy);
+    color: var(--paper);
+    font-family: var(--font-body);
+    background-image:
+      linear-gradient(var(--grid) 1px, transparent 1px),
+      linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+    background-size: 32px 32px;
+    overflow-x: hidden;
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *{ animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+  }
+
+  a{ color: var(--cyan); }
+  a:focus-visible, button:focus-visible, .navlink:focus-visible{
+    outline: 2px solid var(--cyan); outline-offset: 3px;
+  }
+
+  ::selection{ background: var(--cyan); color: var(--navy-deep); }
+
+  .eyebrow{
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--line);
+  }
+
+  /* ---------- NAV ---------- */
+  nav{
+    position: fixed; top:0; left:0; right:0; z-index: 50;
+    display:flex; align-items:center; justify-content:space-between;
+    padding: 14px 28px;
+    background: rgba(6,26,48,0.82);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--line-dim);
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+  }
+  nav .tag{ color: var(--cyan); letter-spacing:0.08em; }
+  .navlinks{ display:flex; gap: 22px; }
+  .navlink{ color: var(--line); text-decoration:none; letter-spacing:0.05em; transition: color .2s; }
+  .navlink:hover{ color: var(--paper); }
+  @media (max-width: 720px){ .navlinks{ display:none; } }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    min-height: 100svh;
+    display:flex; flex-direction:column; justify-content:center;
+    position: relative;
+    padding: 120px 6vw 60px;
+    max-width: 1200px; margin: 0 auto;
+  }
+
+  .hero-grid{
+    display:grid; grid-template-columns: 1.15fr 0.85fr; gap: 40px; align-items:center;
+  }
+  @media (max-width: 880px){ .hero-grid{ grid-template-columns: 1fr; } }
+
+  .drawing-no{
+    font-family: var(--font-mono); font-size: 0.7rem; color: var(--line);
+    letter-spacing: 0.14em; margin-bottom: 18px; opacity:.85;
+  }
+
+  h1.name{
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(2.2rem, 5.4vw, 3.9rem);
+    line-height: 1.02;
+    letter-spacing: -0.01em;
+    color: var(--paper);
+  }
+  h1.name .lastline{ color: var(--cyan); }
+
+  .role-line{
+    font-family: var(--font-mono);
+    color: var(--line);
+    font-size: clamp(0.85rem, 1.6vw, 1rem);
+    margin-top: 18px;
+    display:flex; flex-wrap:wrap; gap: 10px 0;
+  }
+  .role-line span::after{ content: '/'; color: var(--line-dim); margin: 0 10px; }
+  .role-line span:last-child::after{ content:''; margin:0; }
+
+  .hero-summary{
+    margin-top: 26px;
+    max-width: 54ch;
+    color: rgba(234,242,248,0.82);
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  .cta-row{ margin-top: 32px; display:flex; gap: 14px; flex-wrap: wrap; }
+  .btn{
+    font-family: var(--font-mono); font-size: 0.78rem; letter-spacing: 0.04em;
+    padding: 11px 18px; border-radius: 2px; text-decoration:none;
+    border: 1px solid var(--panel-border); color: var(--paper);
+    display:inline-flex; align-items:center; gap:8px; cursor:pointer;
+    background: transparent; transition: border-color .2s, background .2s, transform .15s;
+  }
+  .btn:hover{ border-color: var(--cyan); background: rgba(79,209,197,0.08); transform: translateY(-1px); }
+  .btn.solid{ background: var(--cyan); color: var(--navy-deep); border-color: var(--cyan); font-weight:600; }
+  .btn.solid:hover{ background: #6fe0d5; }
+  .btn .copied{ color: var(--amber); }
+
+  /* Blueprint diagram (SVG) */
+  .diagram-wrap{ position: relative; }
+  svg.blueprint{ width: 100%; height: auto; overflow: visible; }
+  .bp-line{
+    fill: none; stroke: var(--line); stroke-width: 1.4;
+    stroke-dasharray: 600; stroke-dashoffset: 600;
+    animation: draw 2.4s ease forwards;
+  }
+  .bp-line.delay1{ animation-delay: .25s; }
+  .bp-line.delay2{ animation-delay: .5s; }
+  .bp-line.delay3{ animation-delay: .75s; }
+  @keyframes draw{ to{ stroke-dashoffset: 0; } }
+
+  .node{ cursor: pointer; }
+  .node:focus-visible{ outline: 2px solid var(--cyan); outline-offset: 4px; border-radius: 50%; }
+  .node circle{
+    fill: var(--navy); stroke: var(--line); stroke-width: 1.4;
+    transition: stroke .2s, fill .2s, r .2s;
+  }
+  .node text{
+    font-family: var(--font-mono); font-size: 9px; fill: var(--line);
+    letter-spacing: 0.04em; transition: fill .2s;
+  }
+  .node:hover circle{ stroke: var(--cyan); fill: rgba(79,209,197,0.12); }
+  .node:hover text{ fill: var(--paper); }
+  .node.active circle{ stroke: var(--amber); fill: rgba(242,166,90,0.14); }
+  .node.active text{ fill: var(--amber); }
+
+  /* ---------- TITLE BLOCK ---------- */
+  .titleblock{
+    margin-top: 46px;
+    border: 1px solid var(--panel-border);
+    font-family: var(--font-mono); font-size: 0.72rem;
+    display:grid; grid-template-columns: repeat(4, 1fr);
+  }
+  .titleblock .cell{ padding: 10px 14px; border-right: 1px solid var(--panel-border); }
+  .titleblock .cell:last-child{ border-right:none; }
+  .titleblock .cell .k{ color: var(--line); letter-spacing:0.1em; font-size: 0.62rem; display:block; margin-bottom:4px; }
+  .titleblock .cell .v{ color: var(--paper); }
+  @media (max-width: 620px){ .titleblock{ grid-template-columns: 1fr 1fr; } .titleblock .cell:nth-child(2){ border-right:none; } }
+
+  /* ---------- SECTIONS ---------- */
+  section{ max-width: 1200px; margin: 0 auto; padding: 90px 6vw; position: relative; }
+
+  .section-head{ display:flex; align-items:baseline; gap: 16px; margin-bottom: 40px; }
+  .section-head .idx{ font-family: var(--font-mono); color: var(--amber); font-size: 0.85rem; }
+  .section-head h2{
+    font-family: var(--font-display); font-weight:600;
+    font-size: clamp(1.5rem, 2.6vw, 2.1rem); color: var(--paper);
+  }
+  .section-head .rule{ flex:1; height:1px; background: linear-gradient(90deg, var(--line-dim), transparent); }
+
+  /* panel used broadly */
+  .panel{
+    border: 1px solid var(--panel-border);
+    background: var(--panel);
+    padding: 22px 24px;
+    position: relative;
+  }
+  .panel::before{
+    content:''; position:absolute; top:-1px; left:-1px; width:10px; height:10px;
+    border-top: 1.5px solid var(--cyan); border-left: 1.5px solid var(--cyan);
+  }
+  .panel::after{
+    content:''; position:absolute; bottom:-1px; right:-1px; width:10px; height:10px;
+    border-bottom: 1.5px solid var(--cyan); border-right: 1.5px solid var(--cyan);
+  }
+
+  /* ---------- TECH STACK ---------- */
+  .stack-tabs{ display:flex; flex-wrap:wrap; gap:8px; margin-bottom: 26px; }
+  .tab{
+    font-family: var(--font-mono); font-size: 0.72rem; letter-spacing:0.04em;
+    padding: 8px 14px; border: 1px solid var(--panel-border); background: transparent;
+    color: var(--line); cursor:pointer; transition: all .2s;
+  }
+  .tab.active, .tab:hover{ border-color: var(--cyan); color: var(--paper); background: rgba(79,209,197,0.08); }
+
+  .stack-grid{ display:grid; grid-template-columns: repeat(auto-fill, minmax(150px,1fr)); gap: 10px; }
+  .chip{
+    font-family: var(--font-mono); font-size: 0.76rem;
+    border: 1px solid var(--panel-border); padding: 10px 12px;
+    color: var(--paper); background: rgba(234,242,248,0.02);
+    transition: transform .15s, border-color .15s;
+  }
+  .chip:hover{ border-color: var(--cyan); transform: translateY(-2px); }
+  .stack-group{ display:none; }
+  .stack-group.active{ display:grid; }
+
+  /* ---------- EXPERIENCE PIPELINE ---------- */
+  .pipeline{ position: relative; padding-left: 28px; }
+  .pipeline::before{
+    content:''; position:absolute; left: 5px; top: 6px; bottom: 6px; width: 1px;
+    background: repeating-linear-gradient(to bottom, var(--line) 0 6px, transparent 6px 12px);
+  }
+  .stage{ position: relative; margin-bottom: 44px; }
+  .stage:last-child{ margin-bottom: 0; }
+  .stage::before{
+    content:''; position:absolute; left: -28px; top: 4px; width: 11px; height: 11px;
+    border-radius: 50%; background: var(--navy); border: 1.5px solid var(--cyan);
+  }
+  .stage .when{ font-family: var(--font-mono); font-size: 0.72rem; color: var(--amber); letter-spacing: 0.05em; }
+  .stage h3{ font-family: var(--font-display); font-size: 1.15rem; margin: 6px 0 4px; color: var(--paper); }
+  .stage .org{ font-family: var(--font-mono); font-size: 0.78rem; color: var(--line); margin-bottom: 12px; }
+  .stage ul{ list-style: none; display:flex; flex-direction:column; gap: 8px; }
+  .stage li{ font-size: 0.92rem; color: rgba(234,242,248,0.82); padding-left: 18px; position:relative; line-height:1.5; }
+  .stage li::before{ content:'→'; position:absolute; left:0; color: var(--line); }
+
+  /* ---------- PROJECTS ---------- */
+  .project-grid{ display:grid; grid-template-columns: repeat(auto-fit, minmax(300px,1fr)); gap: 20px; }
+  .project-card{
+    border: 1px solid var(--panel-border); padding: 22px; background: var(--panel);
+    display:flex; flex-direction:column; transition: border-color .2s, transform .2s;
+  }
+  .project-card:hover{ border-color: var(--cyan); transform: translateY(-3px); }
+  .project-card .pnum{ font-family: var(--font-mono); font-size: 0.7rem; color: var(--line); margin-bottom: 10px; }
+  .project-card h3{ font-family: var(--font-display); font-size: 1.15rem; margin-bottom: 10px; color: var(--paper); }
+  .project-card p{ font-size: 0.88rem; color: rgba(234,242,248,0.75); line-height:1.55; flex:1; }
+  .project-card .tags{ display:flex; flex-wrap:wrap; gap:6px; margin: 14px 0; }
+  .project-card .tags span{
+    font-family: var(--font-mono); font-size: 0.65rem; color: var(--cyan);
+    border: 1px solid rgba(79,209,197,0.35); padding: 3px 8px;
+  }
+  .project-card a.repo{
+    font-family: var(--font-mono); font-size: 0.75rem; margin-top: 6px;
+    text-decoration: none; display:inline-flex; align-items:center; gap:6px;
+  }
+  .project-card a.repo::after{ content: '↗'; }
+
+  /* ---------- CERTS ---------- */
+  .cert-row{ display:flex; flex-wrap:wrap; gap: 22px; }
+  .stamp{
+    width: 168px; height: 168px; border-radius: 50%;
+    border: 2px dashed var(--amber);
+    display:flex; align-items:center; justify-content:center; text-align:center;
+    transform: rotate(-6deg); flex-shrink:0;
+    font-family: var(--font-mono); color: var(--amber); padding: 14px;
+  }
+  .stamp .inner{ border: 1px solid var(--amber); border-radius:50%; width:100%; height:100%; display:flex; flex-direction:column; align-items:center; justify-content:center; padding: 10px; }
+  .stamp .cname{ font-size: 0.68rem; letter-spacing:0.03em; line-height:1.3; margin-bottom:6px; }
+  .stamp .cdate{ font-size: 0.58rem; opacity:.85; }
+  .cert-details{ flex:1; min-width:220px; font-family: var(--font-mono); font-size:0.78rem; color: var(--line); display:flex; flex-direction:column; gap:6px; justify-content:center; }
+  .cert-details .v{ color: var(--paper); }
+
+  /* ---------- FOOTER ---------- */
+  footer{
+    border-top: 1px solid var(--line-dim);
+    padding: 40px 6vw 60px; max-width:1200px; margin: 0 auto;
+    display:flex; flex-wrap:wrap; justify-content:space-between; gap: 20px;
+    font-family: var(--font-mono); font-size: 0.78rem; color: var(--line);
+  }
+  footer a{ text-decoration: none; }
+  footer a:hover{ color: var(--paper); }
+  footer .links{ display:flex; gap: 18px; flex-wrap:wrap; }
+
+  .reveal{ opacity: 0; transform: translateY(18px); transition: opacity .6s ease, transform .6s ease; }
+  .reveal.in{ opacity:1; transform: translateY(0); }
+
+  .scale-note{ font-family: var(--font-mono); font-size: 0.62rem; color: var(--line-dim); margin-top: 10px; }
+
+  /* ---------- EXTRA INTERACTIVITY / ANIMATION ---------- */
+  .diagram-wrap{ animation: float 6s ease-in-out infinite; }
+  @keyframes float{ 0%,100%{ transform: translateY(0); } 50%{ transform: translateY(-8px); } }
+
+  .node.active circle{ animation: pulse 2.4s ease-in-out infinite; }
+  @keyframes pulse{
+    0%,100%{ filter: drop-shadow(0 0 0 rgba(242,166,90,0)); }
+    50%{ filter: drop-shadow(0 0 6px rgba(242,166,90,0.55)); }
+  }
+
+  .stack-group.active .chip{
+    opacity: 0; transform: translateY(10px);
+    animation: chipIn .5s ease forwards;
+  }
+  @keyframes chipIn{ to{ opacity:1; transform: translateY(0); } }
+  .stack-group.active .chip:nth-child(1){ animation-delay: .02s; } .stack-group.active .chip:nth-child(2){ animation-delay: .05s; }
+  .stack-group.active .chip:nth-child(3){ animation-delay: .08s; } .stack-group.active .chip:nth-child(4){ animation-delay: .11s; }
+  .stack-group.active .chip:nth-child(5){ animation-delay: .14s; } .stack-group.active .chip:nth-child(6){ animation-delay: .17s; }
+  .stack-group.active .chip:nth-child(7){ animation-delay: .20s; } .stack-group.active .chip:nth-child(8){ animation-delay: .23s; }
+  .stack-group.active .chip:nth-child(9){ animation-delay: .26s; } .stack-group.active .chip:nth-child(10){ animation-delay: .29s; }
+  .stack-group.active .chip:nth-child(11){ animation-delay: .32s; } .stack-group.active .chip:nth-child(12){ animation-delay: .35s; }
+  .stack-group.active .chip:nth-child(13){ animation-delay: .38s; } .stack-group.active .chip:nth-child(14){ animation-delay: .41s; }
+  .stack-group.active .chip:nth-child(15){ animation-delay: .44s; } .stack-group.active .chip:nth-child(16){ animation-delay: .47s; }
+  .stack-group.active .chip:nth-child(17){ animation-delay: .50s; } .stack-group.active .chip:nth-child(18){ animation-delay: .53s; }
+  .stack-group.active .chip:nth-child(19){ animation-delay: .56s; } .stack-group.active .chip:nth-child(20){ animation-delay: .59s; }
+
+  .project-card{ will-change: transform; transform-style: preserve-3d; }
+
+  .hero{
+    --mx: 50%; --my: 50%;
+  }
+  .hero::before{
+    content:''; position:absolute; inset:0; pointer-events:none; z-index:-1;
+    background: radial-gradient(420px circle at var(--mx) var(--my), rgba(79,209,197,0.10), transparent 70%);
+    transition: background .05s linear;
+  }
+
+  .btn.solid{ position: relative; overflow: hidden; }
+  .btn.solid::after{
+    content:''; position:absolute; top:0; left:-120%; width:60%; height:100%;
+    background: linear-gradient(115deg, transparent, rgba(255,255,255,0.35), transparent);
+    transform: skewX(-20deg); animation: shine 3.2s ease-in-out infinite;
+  }
+  @keyframes shine{ 0%{ left:-120%; } 45%{ left:130%; } 100%{ left:130%; } }
+
+  .section-head .rule{
+    background: linear-gradient(90deg, var(--line-dim), transparent);
+    background-size: 200% 100%;
+    animation: ruleShift 4s linear infinite;
+  }
+  @keyframes ruleShift{ 0%{ background-position: 0% 0; } 100%{ background-position: -200% 0; } }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="tag">PAB // REV.03</div>
+  <div class="navlinks">
+    <a class="navlink" href="#stack">01 — Stack</a>
+    <a class="navlink" href="#experience">02 — Experience</a>
+    <a class="navlink" href="#projects">03 — Projects</a>
+    <a class="navlink" href="#certs">04 — Certification</a>
+    <a class="navlink" href="#contact">05 — Contact</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="hero-grid">
+    <div>
+      <div class="drawing-no">DWG NO. PAB-2026-DEVOPS &nbsp;·&nbsp; SHEET 1 OF 1</div>
+      <h1 class="name">Purandhar Achari<br>Banthikatla<span class="lastline">.</span></h1>
+      <div class="role-line">
+        <span>AWS</span><span>Azure</span><span>GCP</span><span>Docker</span><span>Kubernetes</span><span>Jenkins</span><span>Terraform</span><span>GitHub Actions</span><span>Ansible</span>
+      </div>
+      <p class="hero-summary">AWS Certified Cloud Practitioner with hands-on DevOps experience automating CI/CD pipelines, containerizing services with Docker and Kubernetes/EKS, and provisioning infrastructure as code with Terraform across AWS and GCP — skilled in Linux and Python scripting, with monitoring via Prometheus and Grafana.</p>
+      <div class="cta-row">
+        <a class="btn solid" href="https://www.linkedin.com/in/purandhar-achari-banthi-katla-726a73265" target="_blank" rel="noopener">Connect on LinkedIn</a>
+        <a class="btn" href="https://github.com/PurandharAchariBanthikatla" target="_blank" rel="noopener">View GitHub ↗</a>
+        <button class="btn" id="copyEmailBtn">Copy email</button>
+      </div>
+
+      <div class="titleblock">
+        <div class="cell"><span class="k">Based in</span><span class="v">Andhra Pradesh, IN</span></div>
+        <div class="cell"><span class="k">Focus</span><span class="v">DevOps / Cloud / MLOps</span></div>
+        <div class="cell"><span class="k">Education</span><span class="v">B.Tech CSE, May 2026</span></div>
+        <div class="cell"><span class="k">Status</span><span class="v">Open to opportunities</span></div>
+      </div>
+      <div class="scale-note">SCALE — N/A &nbsp;|&nbsp; PROJECTION — SINGLE PAGE &nbsp;|&nbsp; DRAWN BY — SELF</div>
+    </div>
+
+    <div class="diagram-wrap">
+      <svg class="blueprint" viewBox="0 0 340 360" role="img" aria-label="Diagram of skill nodes: Cloud, Containers, CI/CD, and Infrastructure as Code connected to a central engineer node">
+        <path class="bp-line" d="M170,180 L70,70" />
+        <path class="bp-line delay1" d="M170,180 L270,70" />
+        <path class="bp-line delay2" d="M170,180 L70,290" />
+        <path class="bp-line delay3" d="M170,180 L270,290" />
+
+        <g class="node active" tabindex="0" role="button" aria-label="Engineer — Purandhar Achari Banthikatla, jump to Contact">
+          <title>Engineer — jump to Contact</title>
+          <circle cx="170" cy="180" r="30"/>
+          <text x="170" y="177" text-anchor="middle">PAB</text>
+          <text x="170" y="189" text-anchor="middle" font-size="7">ENGINEER</text>
+        </g>
+        <g class="node" tabindex="0" role="button" aria-label="Cloud — AWS, GCP, Azure, jump to Tech Stack"><title>Cloud — AWS · GCP · Azure</title><circle cx="70" cy="70" r="26"/><text x="70" y="68" text-anchor="middle">CLOUD</text><text x="70" y="78" text-anchor="middle" font-size="7">AWS·GCP</text></g>
+        <g class="node" tabindex="0" role="button" aria-label="Containers — Docker, Kubernetes, jump to Tech Stack"><title>Containers — Docker · Kubernetes</title><circle cx="270" cy="70" r="26"/><text x="270" y="68" text-anchor="middle">CONTAINERS</text><text x="270" y="78" text-anchor="middle" font-size="7">DOCKER·K8S</text></g>
+        <g class="node" tabindex="0" role="button" aria-label="CI/CD — Jenkins, GitHub Actions, jump to Experience"><title>CI/CD — Jenkins · GitHub Actions</title><circle cx="70" cy="290" r="26"/><text x="70" y="288" text-anchor="middle">CI/CD</text><text x="70" y="298" text-anchor="middle" font-size="7">JENKINS·GHA</text></g>
+        <g class="node" tabindex="0" role="button" aria-label="Infrastructure as Code — Terraform, jump to Tech Stack"><title>IaC — Terraform</title><circle cx="270" cy="290" r="26"/><text x="270" y="288" text-anchor="middle">IaC</text><text x="270" y="298" text-anchor="middle" font-size="7">TERRAFORM</text></g>
+      </svg>
+    </div>
+  </div>
+</header>
+
+<section id="stack">
+  <div class="section-head"><span class="idx">01</span><h2>Tech Stack</h2><div class="rule"></div></div>
+  <div class="panel reveal">
+    <div class="stack-tabs">
+      <button class="tab active" data-group="cloud">Cloud &amp; Networking</button>
+      <button class="tab" data-group="containers">Containers &amp; Orchestration</button>
+      <button class="tab" data-group="cicd">CI/CD &amp; DevSecOps</button>
+      <button class="tab" data-group="iac">Infrastructure as Code</button>
+      <button class="tab" data-group="lang">Languages &amp; Scripting</button>
+      <button class="tab" data-group="mon">Monitoring &amp; Security</button>
+    </div>
+
+    <div class="stack-group active" data-group="cloud">
+      <div class="chip">AWS EC2</div><div class="chip">AWS S3</div><div class="chip">AWS VPC</div><div class="chip">AWS IAM</div>
+      <div class="chip">AWS RDS</div><div class="chip">Route 53</div><div class="chip">Lambda</div><div class="chip">CloudWatch</div>
+      <div class="chip">ECS</div><div class="chip">EKS</div><div class="chip">CodePipeline</div><div class="chip">CloudFormation</div>
+      <div class="chip">GCP Compute Engine</div><div class="chip">Cloud Storage</div><div class="chip">GCP IAM</div><div class="chip">GKE</div>
+      <div class="chip">Pub/Sub</div><div class="chip">Cloud Load Balancing</div><div class="chip">Cloud Functions</div><div class="chip">Cloud Build</div>
+      <div class="chip">Azure Virtual Machines</div><div class="chip">Azure VNet</div><div class="chip">Azure Blob Storage</div><div class="chip">Azure Active Directory</div>
+      <div class="chip">Azure SQL Database</div><div class="chip">AKS</div><div class="chip">Azure DevOps</div><div class="chip">Azure Functions</div><div class="chip">Azure Monitor</div>
+    </div>
+    <div class="stack-group" data-group="containers">
+      <div class="chip">Docker</div><div class="chip">Kubernetes</div><div class="chip">Pods</div><div class="chip">Deployments</div>
+    </div>
+    <div class="stack-group" data-group="cicd">
+      <div class="chip">Jenkins</div><div class="chip">GitHub Actions</div><div class="chip">AWS CodePipeline</div>
+      <div class="chip">Cloud Build</div><div class="chip">Git / GitHub</div><div class="chip">Agile / SDLC</div>
+    </div>
+    <div class="stack-group" data-group="iac">
+      <div class="chip">Terraform (AWS)</div><div class="chip">Terraform (GCP)</div><div class="chip">Ansible</div><div class="chip">CloudFormation</div>
+    </div>
+    <div class="stack-group" data-group="lang">
+      <div class="chip">Linux</div><div class="chip">Python</div><div class="chip">Shell Scripting</div>
+    </div>
+    <div class="stack-group" data-group="mon">
+      <div class="chip">Prometheus</div><div class="chip">Grafana</div><div class="chip">Cloud Monitoring</div>
+      <div class="chip">AWS IAM Policies</div><div class="chip">GCP IAM Policies</div>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="section-head"><span class="idx">02</span><h2>Professional Experience</h2><div class="rule"></div></div>
+  <div class="pipeline">
+    <div class="stage reveal">
+      <div class="when">MAR 2026 — AUG 2026</div>
+      <h3>DevOps Engineer Intern</h3>
+      <div class="org">RR Technosoft, Hyderabad</div>
+      <ul>
+        <li>Implemented CI/CD pipelines using Jenkins and GitHub Actions, streamlining application delivery and cutting manual deployment steps</li>
+        <li>Containerized application services with Docker and supported deployments on Kubernetes/EKS for consistent, repeatable releases</li>
+        <li>Provisioned AWS infrastructure (EC2, VPC, IAM, S3, RDS, CloudWatch) using Terraform for version-controlled deployments</li>
+        <li>Applied IAM policies to support secure, compliant cloud deployments</li>
+        <li>Configured Prometheus and Grafana dashboards for real-time application and infrastructure monitoring</li>
+        <li>Automated operational tasks using Linux and Python scripting to reduce manual effort</li>
+        <li>Worked in an AWS cloud DevOps environment, participating in Agile ceremonies and code reviews</li>
+      </ul>
+    </div>
+    <div class="stage reveal">
+      <div class="when">MAY 2026</div>
+      <h3>B.Tech — Computer Science Engineering &amp; Business Systems</h3>
+      <div class="org">Rajeev Gandhi Memorial College of Engineering and Technology, Nandyal</div>
+      <ul>
+        <li>Coursework and independent projects concentrated on DevOps, cloud infrastructure, and MLOps engineering</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="section-head"><span class="idx">03</span><h2>Projects</h2><div class="rule"></div></div>
+  <div class="project-grid">
+    <div class="project-card reveal">
+      <div class="pnum">SHEET 01</div>
+      <h3>Student LMS</h3>
+      <p>Full-featured Learning Management System for managing courses, learners, and progress tracking. AWS infrastructure (EC2, VPC, S3, RDS) provisioned with Terraform; containerized with Docker and implemented Kubernetes for orchestration; CI/CD via Jenkins and GitHub Actions; Prometheus/Grafana dashboards and least-privilege IAM policies.</p>
+      <div class="tags"><span>Terraform</span><span>Docker</span><span>Kubernetes</span><span>Jenkins</span><span>GitHub Actions</span><span>Prometheus</span></div>
+      <a class="repo" href="https://github.com/PurandharAchariBanthikatla/Student-Lms-Project.git" target="_blank" rel="noopener">github.com/.../Student-Lms-Project</a>
+    </div>
+    <div class="project-card reveal">
+      <div class="pnum">SHEET 02</div>
+      <h3>UPSTOCK — Crypto Trading Platform</h3>
+      <p>Phased microservices platform (API gateway, ledger, wallet services) built on Python with FastAPI, each service containerized with Docker. Service-to-service auth and structured logging via structlog; Alembic-managed PostgreSQL schema migrations. Deployment stack implemented with RDS PostgreSQL, Docker, Kubernetes, Terraform, Ansible, and GitHub Actions for CI/CD-style releases.</p>
+      <div class="tags"><span>Python</span><span>FastAPI</span><span>Docker</span><span>Kubernetes</span><span>RDS PostgreSQL</span><span>Terraform</span><span>Ansible</span><span>GitHub Actions</span></div>
+      <a class="repo" href="https://github.com/PurandharAchariBanthikatla/upstok-trading.git" target="_blank" rel="noopener">github.com/.../upstok-trading</a>
+    </div>
+    <div class="project-card reveal">
+      <div class="pnum">SHEET 03</div>
+      <h3>Dior — Luxury E-Commerce Platform</h3>
+      <p>Responsive luxury fashion e-commerce site with full product catalog, cart, checkout, and returns flow using HTML, CSS, and JavaScript. Git-managed, iterative feature-based development. Deployment stack implemented with RDS PostgreSQL, Docker, Kubernetes, Terraform, Ansible, and GitHub Actions.</p>
+      <div class="tags"><span>JavaScript</span><span>Docker</span><span>Kubernetes</span><span>RDS PostgreSQL</span><span>Terraform</span><span>Ansible</span><span>GitHub Actions</span></div>
+      <a class="repo" href="https://github.com/PurandharAchariBanthikatla/DIOR-LUXURY_STORE" target="_blank" rel="noopener">github.com/.../DIOR-LUXURY_STORE</a>
+    </div>
+  </div>
+</section>
+
+<section id="certs">
+  <div class="section-head"><span class="idx">04</span><h2>Certification</h2><div class="rule"></div></div>
+  <div class="panel reveal">
+    <div class="cert-row">
+      <div class="stamp">
+        <div class="inner">
+          <div class="cname">AWS CERTIFIED<br>CLOUD PRACTITIONER</div>
+          <div class="cdate">VALID THRU<br>03.26.2028</div>
+        </div>
+      </div>
+      <div class="cert-details">
+        <div><span>ISSUED</span> — <span class="v">March 26, 2025</span></div>
+        <div><span>VALID THROUGH</span> — <span class="v">March 26, 2028</span></div>
+        <div><span>VALIDATION NO.</span> — <span class="v">cd5c0579c9b54f39b48e6ba8cde9d098</span></div>
+        <div><span>ALSO HOLDS</span> — <span class="v">PCEP — Certified Entry-Level Python Programmer (issued Dec 2025)</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="section-head"><span class="idx">05</span><h2>Contact</h2><div class="rule"></div></div>
+  <div class="panel reveal" style="display:flex; flex-wrap:wrap; gap:28px; align-items:center; justify-content:space-between;">
+    <div>
+      <div class="eyebrow">Reach out</div>
+      <p style="font-family:var(--font-display); font-size:1.3rem; margin-top:8px;">Open to DevOps &amp; Cloud Engineering roles.</p>
+    </div>
+    <div class="cta-row" style="margin-top:0;">
+      <a class="btn solid" href="mailto:purandharacharibanthikatla@gmail.com">Email Me</a>
+      <a class="btn" href="tel:+919182992865">Call — +91 91829 92865</a>
+      <a class="btn" href="https://www.linkedin.com/in/purandhar-achari-banthi-katla-726a73265" target="_blank" rel="noopener">LinkedIn ↗</a>
+      <a class="btn" href="https://github.com/PurandharAchariBanthikatla" target="_blank" rel="noopener">GitHub ↗</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div>© 2026 Purandhar Achari Banthikatla — Automate. Secure. Scale. Optimize.</div>
+  <div class="links">
+    <a href="mailto:purandharacharibanthikatla@gmail.com">purandharacharibanthikatla@gmail.com</a>
+    <a href="tel:+919182992865">+91 91829 92865</a>
+    <a href="https://github.com/PurandharAchariBanthikatla" target="_blank" rel="noopener">GitHub</a>
+    <a href="https://www.linkedin.com/in/purandhar-achari-banthi-katla-726a73265" target="_blank" rel="noopener">LinkedIn</a>
+  </div>
+</footer>
+
+<script>
+  // Tab switching for tech stack
+  document.querySelectorAll('.tab').forEach(tab=>{
+    tab.addEventListener('click', ()=>{
+      document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+      document.querySelectorAll('.stack-group').forEach(g=>g.classList.remove('active'));
+      tab.classList.add('active');
+      document.querySelector('.stack-group[data-group="'+tab.dataset.group+'"]').classList.add('active');
+    });
+  });
+
+  // Hero diagram node -> jump to related section
+  const nodeMap = {0:'contact',1:'stack',2:'stack',3:'experience',4:'stack'};
+  document.querySelectorAll('.blueprint .node').forEach((node,i)=>{
+    const jump = ()=>{
+      const target = i===1||i===4 ? 'stack' : (i===2 ? 'stack' : (i===3 ? 'experience' : 'contact'));
+      const el = document.getElementById(target);
+      if(el) el.scrollIntoView({behavior:'smooth'});
+    };
+    node.addEventListener('click', jump);
+    node.addEventListener('keydown', (e)=>{
+      if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); jump(); }
+    });
+  });
+
+  // Copy email button
+  const copyBtn = document.getElementById('copyEmailBtn');
+  copyBtn.addEventListener('click', async ()=>{
+    try{
+      await navigator.clipboard.writeText('purandharacharibanthikatla@gmail.com');
+      const original = copyBtn.textContent;
+      copyBtn.innerHTML = '<span class="copied">Copied ✓</span>';
+      setTimeout(()=>{ copyBtn.textContent = original; }, 1800);
+    }catch(e){
+      copyBtn.textContent = 'purandharacharibanthikatla@gmail.com';
+    }
+  });
+
+  // Scroll reveal
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){ entry.target.classList.add('in'); io.unobserve(entry.target); }
+    });
+  }, {threshold: 0.15});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+  // Cursor-follow glow in hero
+  const heroEl = document.querySelector('.hero');
+  if(heroEl){
+    heroEl.addEventListener('mousemove', (e)=>{
+      const rect = heroEl.getBoundingClientRect();
+      heroEl.style.setProperty('--mx', ((e.clientX - rect.left) / rect.width * 100) + '%');
+      heroEl.style.setProperty('--my', ((e.clientY - rect.top) / rect.height * 100) + '%');
+    });
+  }
+
+  // Subtle 3D tilt on project cards
+  document.querySelectorAll('.project-card').forEach(card=>{
+    card.addEventListener('mousemove', (e)=>{
+      const r = card.getBoundingClientRect();
+      const px = (e.clientX - r.left) / r.width - 0.5;
+      const py = (e.clientY - r.top) / r.height - 0.5;
+      card.style.transform = `translateY(-3px) rotateX(${(-py*4).toFixed(2)}deg) rotateY(${(px*4).toFixed(2)}deg)`;
+    });
+    card.addEventListener('mouseleave', ()=>{ card.style.transform = ''; });
+  });
+</script>
+
+</body>
+</html>
