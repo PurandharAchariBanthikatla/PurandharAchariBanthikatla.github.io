@@ -1,3 +1,4 @@
+<div align="center">
 
 # Purandhar Achari Banthikatla
 
@@ -127,7 +128,7 @@ Issued: **December 2025**
 
 [![Email](https://img.shields.io/badge/Email-Contact%20Me-EA4335?style=for-the-badge&logo=gmail&logoColor=white)](mailto:purandharacharibanthikatla@gmail.com)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/purandhar-achari-banthi-katla-726a73265)
-[![Portfolio](https://img.shields.io/badge/Portfolio-Visit-4FD1C5?style=for-the-badge&logo=google-chrome&logoColor=white)](https://purandharachari46.github.io/dior-store/)
+[![Portfolio](https://img.shields.io/badge/Portfolio-Visit-4FD1C5?style=for-the-badge&logo=google-chrome&logoColor=white)](https://purandharacharibanthikatla.github.io)
 
 **Open to DevOps & Cloud Engineering opportunities.**
 
