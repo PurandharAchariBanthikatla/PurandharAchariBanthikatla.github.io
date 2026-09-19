@@ -44,6 +44,7 @@
     --paper: #EAF2F8;
     --cyan: #4FD1C5;
     --amber: #F2A65A;
+    --red: #F27059;
     --panel: rgba(234,242,248,0.03);
     --panel-border: rgba(127,179,217,0.35);
     --font-display: 'Space Grotesk', sans-serif;
@@ -178,6 +179,7 @@
   .btn.solid{ background: var(--cyan); color: var(--navy-deep); border-color: var(--cyan); font-weight:600; }
   .btn.solid:hover{ background: #6fe0d5; }
   .btn .copied{ color: var(--amber); }
+  .btn[disabled], .btn.disabled{ opacity: 0.4; cursor: not-allowed; pointer-events: none; }
 
   /* Blueprint diagram (SVG) */
   .diagram-wrap{ position: relative; }
@@ -426,6 +428,14 @@
     .resume-frame{ display:none; }
     .resume-fallback{ display:block; }
   }
+  /* Shown only if the PDF genuinely fails to load (e.g. wrong path/case on the host) */
+  .resume-missing{
+    display:none; border: 1px dashed var(--red); background: rgba(242,112,89,0.06);
+    padding: 20px; font-family: var(--font-mono); font-size: 0.8rem; color: var(--paper); line-height: 1.6;
+  }
+  .resume-missing.show{ display:block; }
+  .resume-missing .k{ color: var(--red); font-weight:600; }
+  .resume-missing code{ color: var(--amber); }
 
   @media print{
     nav, .progress, .cta-row, .diagram-wrap, .filter-row, .stack-tabs{ display:none !important; }
@@ -439,7 +449,7 @@
 <div class="progress" id="progress" aria-hidden="true"></div>
 
 <nav>
-  <div class="tag">PAB // REV.04</div>
+  <div class="tag">PAB // REV.05</div>
   <div class="navlinks">
     <a class="navlink" href="#stack">01 — Stack</a>
     <a class="navlink" href="#experience">02 — Experience</a>
@@ -466,7 +476,7 @@
       <div class="cta-row">
         <a class="btn solid" href="https://www.linkedin.com/in/purandhar-achari-banthi-katla-726a73265" target="_blank" rel="noopener">Connect on LinkedIn</a>
         <a class="btn" href="https://github.com/PurandharAchariBanthikatla" target="_blank" rel="noopener">View GitHub ↗</a>
-        <a class="btn" href="Purandhar_Achari_DevOps_Engineer.pdf" download>Download resume</a>
+        <a class="btn" id="heroDownloadBtn" href="Purandhar_Achari_DevOps_Engineer.pdf" download>Download resume</a>
         <button class="btn" id="copyEmailBtn">Copy email</button>
       </div>
 
@@ -704,12 +714,18 @@
     <div class="resume-bar">
       <div class="resume-meta"><span class="v">Purandhar_Achari_DevOps_Engineer.pdf</span><br>DevOps Engineer &nbsp;·&nbsp; 2 pages &nbsp;·&nbsp; PDF</div>
       <div class="cta-row" style="margin-top:0;">
-        <a class="btn solid" href="Purandhar_Achari_DevOps_Engineer.pdf" download>Download PDF</a>
-        <a class="btn" href="Purandhar_Achari_DevOps_Engineer.pdf" target="_blank" rel="noopener">Open in new tab ↗</a>
+        <a class="btn solid" id="resumeDownloadBtn" href="Purandhar_Achari_DevOps_Engineer.pdf" download>Download PDF</a>
+        <a class="btn" id="resumeOpenBtn" href="Purandhar_Achari_DevOps_Engineer.pdf" target="_blank" rel="noopener">Open in new tab ↗</a>
       </div>
     </div>
-    <iframe class="resume-frame" src="Purandhar_Achari_DevOps_Engineer.pdf#view=FitH" title="Resume of Purandhar Achari Banthikatla (PDF)" loading="lazy"></iframe>
+    <iframe class="resume-frame" id="resumeFrame" src="Purandhar_Achari_DevOps_Engineer.pdf#view=FitH" title="Resume of Purandhar Achari Banthikatla (PDF)" loading="lazy"></iframe>
     <p class="resume-fallback">PDF preview isn't available on small screens. Use Download PDF or Open in new tab to read the full resume.</p>
+    <div class="resume-missing" id="resumeMissing">
+      <span class="k">Resume file not found on this deployment.</span><br><br>
+      This page looks for <code>Purandhar_Achari_DevOps_Engineer.pdf</code> in the same folder as <code>index.html</code>.
+      If you're the site owner: commit the PDF to the repository root with that exact filename and casing, push, and give
+      GitHub Pages a minute to redeploy — then reload this page.
+    </div>
   </div>
 </section>
 
@@ -857,6 +873,32 @@
     const d = card.querySelector('details');
     if(d) d.addEventListener('toggle', ()=>{ card.style.transform = ''; });
   });
+
+  // ---------- Resume availability check ----------
+  // Verifies the PDF actually exists at the deployed path. If it 404s (wrong
+  // filename/case, missing commit, or Pages still redeploying), we hide the
+  // broken preview/download controls and show a clear diagnostic instead of
+  // letting visitors see a raw host 404 page inside the iframe.
+  (function checkResume(){
+    const RESUME_PATH = 'Purandhar_Achari_DevOps_Engineer.pdf';
+    const frame = document.getElementById('resumeFrame');
+    const missingBox = document.getElementById('resumeMissing');
+    const buttons = [
+      document.getElementById('heroDownloadBtn'),
+      document.getElementById('resumeDownloadBtn'),
+      document.getElementById('resumeOpenBtn')
+    ];
+
+    fetch(RESUME_PATH, { method: 'HEAD', cache: 'no-store' })
+      .then(res => {
+        if(!res.ok) throw new Error('not ok');
+      })
+      .catch(() => {
+        if(frame) frame.style.display = 'none';
+        buttons.forEach(b => { if(b) b.classList.add('disabled'); });
+        if(missingBox) missingBox.classList.add('show');
+      });
+  })();
 </script>
 
 </body>
