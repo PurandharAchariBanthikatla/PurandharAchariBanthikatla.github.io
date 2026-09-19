@@ -2,17 +2,20 @@
 
 # Purandhar Achari Banthikatla
 
-### DevOps Engineer | AWS | Docker | Kubernetes | Jenkins | Terraform | CI/CD
+### DevOps Engineer | Azure DevOps | AWS | Docker | Kubernetes | Helm | Terraform | CI/CD
 
 [![AWS Certified](https://img.shields.io/badge/AWS-Certified%20Cloud%20Practitioner-orange?style=for-the-badge&logo=amazon-aws&logoColor=white)](https://aws.amazon.com/certification/)
 [![GitHub](https://img.shields.io/badge/GitHub-Profile-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/PurandharAchariBanthikatla)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/purandhar-achari-banthi-katla-726a73265)
+[![Portfolio](https://img.shields.io/badge/Portfolio-Visit-4FD1C5?style=for-the-badge&logo=google-chrome&logoColor=white)](https://purandharacharibanthikatla.github.io)
+[![Resume](https://img.shields.io/badge/Resume-Download%20PDF-B91C1C?style=for-the-badge&logo=adobeacrobatreader&logoColor=white)](https://purandharacharibanthikatla.github.io/Purandhar_Achari_DevOps_Engineer.pdf)
 
-**AWS Certified Cloud Practitioner** with hands-on DevOps experience automating CI/CD pipelines,
-containerizing services with Docker and Kubernetes/EKS, and provisioning infrastructure as code
-with Terraform across AWS and GCP.
+**DevOps Engineer** with 5 months of hands-on experience in **Azure DevOps, AWS, CI/CD, Docker, Kubernetes, Helm and Infrastructure as Code**.
+Currently a **DevOps Engineer Intern at FastPix Solutions**, managing source-code workflows and CI/CD pipelines with Azure DevOps,
+building Docker-based deployments, and running Kubernetes and Helm deployments in staging environments.
+**AWS Certified Cloud Practitioner.**
 
-📍 Andhra Pradesh, India &nbsp; | &nbsp; 🎓 B.Tech CSE & Business Systems — May 2026 &nbsp; | &nbsp; 💼 Open to opportunities
+📍 Hyderabad, India &nbsp; | &nbsp; 🎓 B.Tech CSE & Business Systems — May 2026 &nbsp; | &nbsp; 💼 Open to opportunities
 
 </div>
 
@@ -20,55 +23,62 @@ with Terraform across AWS and GCP.
 
 ## 🧠 About Me
 
-I am a **DevOps & Cloud Engineering enthusiast** focused on building secure, scalable,
+I am a **DevOps & Cloud Engineering** practitioner focused on building secure, scalable,
 automated and production-ready systems.
 
-- ☁️ Cloud: **AWS, GCP, Azure**
-- 🐳 Containers: **Docker, Kubernetes/EKS**
-- 🔄 CI/CD: **Jenkins, GitHub Actions, AWS CodePipeline**
+- ☁️ Cloud: **AWS, Azure, GCP**
+- 🐳 Containers: **Docker, Kubernetes, Helm**
+- 🔄 CI/CD: **Azure DevOps, Jenkins, GitHub Actions, AWS CodePipeline**
 - 🏗️ Infrastructure as Code: **Terraform, Ansible, CloudFormation**
-- 🐧 Automation: **Linux, Python, Shell Scripting**
-- 📊 Monitoring: **Prometheus, Grafana, CloudWatch**
-- 🔐 Security: **IAM and least-privilege cloud access**
+- 🐧 Automation: **Linux, Python, Shell Scripting, YAML**
+- 📊 Monitoring: **Prometheus, Grafana, Loki, OpenTelemetry, CloudWatch**
+- 🔐 Security: **IAM, RBAC and least-privilege cloud access**
 
 ---
 
 ## 🛠️ Tech Stack
 
 ### ☁️ Cloud & Networking
-`AWS EC2` `S3` `VPC` `IAM` `RDS` `Route 53` `Lambda` `CloudWatch` `ECS` `EKS`  
+`AWS EC2` `S3` `VPC` `IAM` `RDS` `Route 53` `Lambda` `CloudWatch` `ECS` `EKS` `CloudFormation`  
 `GCP Compute Engine` `Cloud Storage` `GCP IAM` `GKE` `Pub/Sub`  
-`Azure VM` `Azure VNet` `Azure Blob Storage` `AKS` `Azure DevOps`
+`Azure VM` `Azure VNet` `Azure Blob Storage` `Microsoft Entra ID` `AKS` `Azure DevOps`
 
 ### 📦 Containers & Orchestration
-`Docker` `Kubernetes` `Pods` `Deployments` `EKS`
+`Docker` `Kubernetes` `Helm` `Pods` `Deployments` `Services`
 
 ### 🔁 CI/CD & DevSecOps
-`Jenkins` `GitHub Actions` `AWS CodePipeline` `Cloud Build` `Git` `GitHub` `Agile / SDLC`
+`Azure DevOps` `Azure Repos` `Azure Pipelines` `Jenkins` `GitHub Actions` `AWS CodePipeline` `Cloud Build` `CI/CD Pipelines` `Git` `GitHub` `Agile / SDLC`
 
 ### 🏗️ Infrastructure as Code
-`Terraform` `Ansible` `AWS CloudFormation`
+`Terraform (AWS, GCP, Azure)` `Ansible` `AWS CloudFormation`
 
 ### 💻 Languages & Scripting
-`Python` `Linux` `Shell Scripting`
+`Python` `Linux` `Linux Administration` `Shell Scripting` `YAML`
 
 ### 📈 Monitoring & Security
-`Prometheus` `Grafana` `CloudWatch` `AWS IAM Policies` `GCP IAM Policies`
+`Prometheus` `Grafana` `Loki` `OpenTelemetry` `CloudWatch` `AWS IAM Policies` `GCP IAM Policies` `RBAC`
 
 ---
 
 ## 💼 Professional Experience
 
-### DevOps Engineer Intern — RR Technosoft, Hyderabad
-**Mar 2026 — Aug 2026**
+### DevOps Engineer Intern — FastPix Solutions Pvt. Ltd., Hyderabad
+**September 2026 — Present**
 
-- Implemented CI/CD pipelines using **Jenkins and GitHub Actions**, streamlining application delivery.
-- Containerized application services with **Docker** and supported deployments on **Kubernetes/EKS**.
-- Provisioned AWS infrastructure including **EC2, VPC, IAM, S3, RDS and CloudWatch** using Terraform.
-- Applied IAM policies to support secure cloud deployments.
-- Configured **Prometheus and Grafana** dashboards for application and infrastructure monitoring.
-- Automated operational tasks using **Linux and Python scripting**.
-- Worked in an AWS cloud DevOps environment with Agile ceremonies and code reviews.
+- Managed source code and repository workflows using **Azure DevOps**, including branch management, code integration and development workflows.
+- Designed and maintained **Azure DevOps CI/CD pipelines** to automate build, containerization and deployment workflows across staging environments.
+- Built and managed **Docker** containers and performed **Kubernetes** deployments using **Helm**, supporting application releases and configuration management in staging.
+- Configured **Prometheus and Grafana** for monitoring, alerting and dashboard visualization, tracking application and Kubernetes metrics.
+- Troubleshot and supported Azure DevOps, Docker, Kubernetes, Helm and monitoring-related issues, helping maintain reliable staging deployments.
+
+### AWS DevOps Engineer Intern — RR Technosoft, Hyderabad
+**May 2026 — August 2026**
+
+- Implemented **DevOps** practices for the **Student LMS** project, contributing to source-code management, CI/CD, containerization, deployment, monitoring and troubleshooting.
+- Created and maintained **CI/CD pipelines** using **Jenkins and GitHub Actions**, supporting automated software delivery workflows.
+- Built and managed **Docker** images and containers and worked with **Kubernetes** Pods, Deployments and Services for containerized application deployment.
+- Provisioned and managed cloud infrastructure using **AWS and Terraform**, applying Infrastructure as Code practices.
+- Automated routine DevOps tasks using **Shell and Python** scripting and performed monitoring, troubleshooting and issue resolution for applications and infrastructure.
 
 ### 🎓 B.Tech — Computer Science Engineering & Business Systems
 **Rajeev Gandhi Memorial College of Engineering and Technology, Nandyal — May 2026**
@@ -79,27 +89,39 @@ Coursework and independent projects focused on **DevOps, cloud infrastructure an
 
 ## 🚀 Featured Projects
 
-### 01 — Student LMS
-Full-featured Learning Management System for courses, learners and progress tracking.
+### 01 — UPSTOK — Trading Platform
+Microservices-based trading platform built with Python and FastAPI, with modular services across **5 domains**:
+authentication, wallet/ledger, market data, assets and order processing. Containerized with Docker, orchestrated on Kubernetes,
+released through GitHub Actions CI/CD, and backed by **91 automated tests with a 100% pass rate**.
 
-**Stack:** `AWS` `Terraform` `Docker` `Kubernetes` `Jenkins` `GitHub Actions` `Prometheus` `Grafana` `IAM`
+**Stack:** `Python` `FastAPI` `PostgreSQL` `Redis` `Docker` `Kubernetes` `GitHub Actions`
 
-👉 [View Repository](https://github.com/PurandharAchariBanthikatla/Student-Lms-Project)
+👉 [View Repository](https://github.com/PurandharAchariBanthikatla/TRADING-PLATFORM.git)
 
-### 02 — UPSTOCK — Crypto Trading Platform
-Phased microservices platform with API gateway, ledger and wallet services using Python/FastAPI,
-Docker, PostgreSQL and cloud-native deployment tooling.
+### 02 — RR Technosoft LMS
+Enterprise learning management system on Spring Boot 3.3 (Java 21) and Next.js 15, covering **9 modules**:
+course delivery, assignments, quizzes, attendance, live classes, certificates, placements, finance and administration.
+Deployed on Kubernetes with a **3-stage Jenkins CI/CD workflow** and Prometheus/Grafana monitoring.
 
-**Stack:** `Python` `FastAPI` `Docker` `Kubernetes` `PostgreSQL` `Terraform` `Ansible` `GitHub Actions`
+**Stack:** `Spring Boot 3.3` `Java 21` `Next.js 15` `PostgreSQL 16` `Redis 7` `Docker` `Kubernetes` `Jenkins` `Prometheus` `Grafana`
 
-👉 [View Repository](https://github.com/PurandharAchariBanthikatla/upstok-trading)
+👉 [View Repository](https://github.com/PurandharAchariBanthikatla/RR-Technosoft-LMS)
 
-### 03 — Dior — Luxury E-Commerce Platform
-Responsive luxury fashion e-commerce platform with product catalog, cart, checkout and returns flow.
+### 03 — VELORA — Premium Fashion E-Commerce
+Premium fashion e-commerce application deployed with Docker, Kubernetes and Helm, with CI/CD automation, HPA, Ingress,
+monitoring, database backups and production-ready infrastructure for scalable, reliable delivery.
 
-**Stack:** `JavaScript` `Docker` `Kubernetes` `PostgreSQL` `Terraform` `Ansible` `GitHub Actions`
+**Stack:** `Docker` `Kubernetes` `Helm` `GitHub Actions` `PostgreSQL` `Redis` `AWS`
 
-👉 [View Repository](https://github.com/PurandharAchariBanthikatla/DIOR-LUXURY_STORE)
+👉 [View Repository](https://github.com/PurandharAchariBanthikatla/VELORA_PREMIUM_FASHION)
+
+### 04 — FreshCart — Grocery E-Commerce
+Full-stack e-commerce platform for online grocery shopping, with secure authentication, product and category management,
+cart and checkout, order tracking, payments, user profiles, an admin dashboard and a responsive UI.
+
+**Stack:** `Full-stack` `REST API` `Authentication` `Payments` `Admin dashboard`
+
+👉 [View Repository](https://github.com/PurandharAchariBanthikatla/FRESHCART)
 
 ---
 
