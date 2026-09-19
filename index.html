@@ -4,14 +4,34 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Purandhar Achari Banthikatla — DevOps &amp; Cloud Engineer</title>
-<meta name="description" content="Purandhar Achari Banthikatla — AWS Certified Cloud Practitioner and DevOps Engineer specializing in CI/CD, Docker/Kubernetes, and Infrastructure as Code across AWS, GCP, and Azure.">
+<meta name="description" content="Purandhar Achari Banthikatla — DevOps Engineer and AWS Certified Cloud Practitioner working with Azure DevOps, AWS, CI/CD, Docker, Kubernetes, Helm, and Terraform. Currently DevOps Engineer Intern at FastPix Solutions, Hyderabad.">
 <meta property="og:title" content="Purandhar Achari Banthikatla — DevOps & Cloud Engineer">
-<meta property="og:description" content="AWS Certified Cloud Practitioner with hands-on DevOps experience automating CI/CD pipelines, containerizing services, and provisioning infrastructure as code.">
+<meta property="og:description" content="DevOps Engineer with hands-on experience in Azure DevOps, AWS, CI/CD, Docker, Kubernetes, Helm, and Infrastructure as Code. AWS Certified Cloud Practitioner.">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Purandhar Achari Banthikatla — DevOps & Cloud Engineer">
-<meta name="twitter:description" content="AWS Certified Cloud Practitioner with hands-on DevOps experience automating CI/CD pipelines, containerizing services, and provisioning infrastructure as code.">
+<meta name="twitter:description" content="DevOps Engineer with hands-on experience in Azure DevOps, AWS, CI/CD, Docker, Kubernetes, Helm, and Infrastructure as Code. AWS Certified Cloud Practitioner.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%230A2540'/%3E%3Ctext x='50' y='62' font-family='monospace' font-size='40' font-weight='700' fill='%234FD1C5' text-anchor='middle'%3EPAB%3C/text%3E%3C/svg%3E">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Purandhar Achari Banthikatla",
+  "jobTitle": "DevOps Engineer",
+  "email": "mailto:purandharacharibanthikatla@gmail.com",
+  "address": { "@type": "PostalAddress", "addressLocality": "Hyderabad", "addressCountry": "IN" },
+  "worksFor": { "@type": "Organization", "name": "FastPix Solutions Pvt. Ltd." },
+  "alumniOf": "Rajeev Gandhi Memorial College of Engineering and Technology",
+  "hasCredential": "AWS Certified Cloud Practitioner",
+  "knowsAbout": ["Azure DevOps", "AWS", "CI/CD", "Docker", "Kubernetes", "Helm", "Terraform", "Prometheus", "Grafana"],
+  "sameAs": [
+    "https://github.com/PurandharAchariBanthikatla",
+    "https://www.linkedin.com/in/purandhar-achari-banthi-katla-726a73265"
+  ]
+}
+</script>
+
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap');
 
@@ -33,7 +53,7 @@
 
   *{ box-sizing: border-box; margin:0; padding:0; }
 
-  html{ scroll-behavior: smooth; }
+  html{ scroll-behavior: smooth; scroll-padding-top: 70px; }
 
   body{
     background: var(--navy);
@@ -47,11 +67,11 @@
   }
 
   @media (prefers-reduced-motion: reduce){
-    *{ animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+    *{ animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
   }
 
   a{ color: var(--cyan); }
-  a:focus-visible, button:focus-visible, .navlink:focus-visible{
+  a:focus-visible, button:focus-visible, .navlink:focus-visible, summary:focus-visible{
     outline: 2px solid var(--cyan); outline-offset: 3px;
   }
 
@@ -63,6 +83,12 @@
     letter-spacing: 0.18em;
     text-transform: uppercase;
     color: var(--line);
+  }
+
+  /* ---------- SCROLL PROGRESS ---------- */
+  .progress{
+    position: fixed; top:0; left:0; height:2px; width:0; z-index: 60;
+    background: linear-gradient(90deg, var(--cyan), var(--amber));
   }
 
   /* ---------- NAV ---------- */
@@ -78,8 +104,9 @@
   }
   nav .tag{ color: var(--cyan); letter-spacing:0.08em; }
   .navlinks{ display:flex; gap: 22px; }
-  .navlink{ color: var(--line); text-decoration:none; letter-spacing:0.05em; transition: color .2s; }
+  .navlink{ color: var(--line); text-decoration:none; letter-spacing:0.05em; transition: color .2s; padding-bottom: 3px; border-bottom: 1px solid transparent; }
   .navlink:hover{ color: var(--paper); }
+  .navlink.current{ color: var(--paper); border-bottom-color: var(--cyan); }
   @media (max-width: 720px){ .navlinks{ display:none; } }
 
   /* ---------- HERO ---------- */
@@ -121,13 +148,23 @@
   .role-line span::after{ content: '/'; color: var(--line-dim); margin: 0 10px; }
   .role-line span:last-child::after{ content:''; margin:0; }
 
+  .now-pill{
+    display:inline-flex; align-items:center; gap:10px; margin-top: 22px;
+    font-family: var(--font-mono); font-size: 0.74rem; color: var(--paper);
+    border: 1px solid var(--panel-border); padding: 8px 14px; background: rgba(79,209,197,0.06);
+  }
+  .now-pill .dot{ width:8px; height:8px; border-radius:50%; background: var(--cyan); animation: blink 2s ease-in-out infinite; flex-shrink:0; }
+  .now-pill .k{ color: var(--line); }
+  @keyframes blink{ 0%,100%{ box-shadow: 0 0 0 0 rgba(79,209,197,0.55); } 50%{ box-shadow: 0 0 0 6px rgba(79,209,197,0); } }
+
   .hero-summary{
-    margin-top: 26px;
-    max-width: 54ch;
+    margin-top: 22px;
+    max-width: 58ch;
     color: rgba(234,242,248,0.82);
     font-size: 1rem;
     line-height: 1.6;
   }
+  .hero-summary strong{ color: var(--paper); font-weight: 600; }
 
   .cta-row{ margin-top: 32px; display:flex; gap: 14px; flex-wrap: wrap; }
   .btn{
@@ -211,7 +248,7 @@
   }
 
   /* ---------- TECH STACK ---------- */
-  .stack-tabs{ display:flex; flex-wrap:wrap; gap:8px; margin-bottom: 26px; }
+  .stack-tabs, .filter-row{ display:flex; flex-wrap:wrap; gap:8px; margin-bottom: 26px; }
   .tab{
     font-family: var(--font-mono); font-size: 0.72rem; letter-spacing:0.04em;
     padding: 8px 14px; border: 1px solid var(--panel-border); background: transparent;
@@ -227,8 +264,14 @@
     transition: transform .15s, border-color .15s;
   }
   .chip:hover{ border-color: var(--cyan); transform: translateY(-2px); }
-  .stack-group{ display:none; }
+  .stack-group{ display:none; grid-template-columns: repeat(auto-fill, minmax(150px,1fr)); gap: 10px; }
   .stack-group.active{ display:grid; }
+  .stack-wrap.all .stack-group{ display:grid; margin-bottom: 18px; }
+  .stack-wrap.all .stack-group:last-child{ margin-bottom: 0; }
+  .stack-wrap.all .stack-group::before{
+    content: attr(data-label); grid-column: 1 / -1;
+    font-family: var(--font-mono); font-size: 0.68rem; color: var(--amber); letter-spacing: 0.06em;
+  }
 
   /* ---------- EXPERIENCE PIPELINE ---------- */
   .pipeline{ position: relative; padding-left: 28px; }
@@ -242,33 +285,60 @@
     content:''; position:absolute; left: -28px; top: 4px; width: 11px; height: 11px;
     border-radius: 50%; background: var(--navy); border: 1.5px solid var(--cyan);
   }
-  .stage .when{ font-family: var(--font-mono); font-size: 0.72rem; color: var(--amber); letter-spacing: 0.05em; }
+  .stage.current::before{ background: var(--cyan); animation: blink 2s ease-in-out infinite; }
+  .stage .when{ font-family: var(--font-mono); font-size: 0.72rem; color: var(--amber); letter-spacing: 0.05em; display:flex; align-items:center; gap:10px; flex-wrap:wrap; }
+  .stage .badge{
+    font-size: 0.62rem; color: var(--navy-deep); background: var(--cyan);
+    padding: 2px 7px; letter-spacing: 0.08em; font-weight: 600;
+  }
   .stage h3{ font-family: var(--font-display); font-size: 1.15rem; margin: 6px 0 4px; color: var(--paper); }
   .stage .org{ font-family: var(--font-mono); font-size: 0.78rem; color: var(--line); margin-bottom: 12px; }
   .stage ul{ list-style: none; display:flex; flex-direction:column; gap: 8px; }
-  .stage li{ font-size: 0.92rem; color: rgba(234,242,248,0.82); padding-left: 18px; position:relative; line-height:1.5; }
+  .stage li{ font-size: 0.92rem; color: rgba(234,242,248,0.82); padding-left: 18px; position:relative; line-height:1.5; max-width: 90ch; }
   .stage li::before{ content:'→'; position:absolute; left:0; color: var(--line); }
+  .stage li strong{ color: var(--paper); font-weight: 600; }
+  .stage .tools{ display:flex; flex-wrap:wrap; gap:6px; margin-top: 16px; }
+  .stage .tools span{
+    font-family: var(--font-mono); font-size: 0.65rem; color: var(--cyan);
+    border: 1px solid rgba(79,209,197,0.35); padding: 3px 8px;
+  }
 
   /* ---------- PROJECTS ---------- */
-  .project-grid{ display:grid; grid-template-columns: repeat(auto-fit, minmax(300px,1fr)); gap: 20px; }
+  .project-grid{ display:grid; grid-template-columns: repeat(auto-fit, minmax(300px,1fr)); gap: 20px; align-items: start; }
   .project-card{
     border: 1px solid var(--panel-border); padding: 22px; background: var(--panel);
     display:flex; flex-direction:column; transition: border-color .2s, transform .2s;
   }
+  .project-card[hidden]{ display:none; }
   .project-card:hover{ border-color: var(--cyan); transform: translateY(-3px); }
-  .project-card .pnum{ font-family: var(--font-mono); font-size: 0.7rem; color: var(--line); margin-bottom: 10px; }
+  .project-card .pnum{ font-family: var(--font-mono); font-size: 0.7rem; color: var(--line); margin-bottom: 10px; display:flex; justify-content:space-between; }
   .project-card h3{ font-family: var(--font-display); font-size: 1.15rem; margin-bottom: 10px; color: var(--paper); }
-  .project-card p{ font-size: 0.88rem; color: rgba(234,242,248,0.75); line-height:1.55; flex:1; }
+  .project-card p{ font-size: 0.88rem; color: rgba(234,242,248,0.75); line-height:1.55; }
   .project-card .tags{ display:flex; flex-wrap:wrap; gap:6px; margin: 14px 0; }
   .project-card .tags span{
     font-family: var(--font-mono); font-size: 0.65rem; color: var(--cyan);
     border: 1px solid rgba(79,209,197,0.35); padding: 3px 8px;
   }
+  .project-card details{ border-top: 1px solid var(--line-dim); padding-top: 12px; margin-bottom: 14px; }
+  .project-card summary{
+    font-family: var(--font-mono); font-size: 0.74rem; color: var(--line);
+    cursor: pointer; list-style: none; display:flex; align-items:center; gap:8px;
+  }
+  .project-card summary::-webkit-details-marker{ display:none; }
+  .project-card summary::before{ content:'+'; color: var(--amber); width: 10px; display:inline-block; }
+  .project-card details[open] summary::before{ content:'–'; }
+  .project-card summary:hover{ color: var(--paper); }
+  .project-card details ul{ list-style:none; margin-top: 12px; display:flex; flex-direction:column; gap:8px; }
+  .project-card details li{ font-size: 0.83rem; color: rgba(234,242,248,0.8); line-height:1.5; padding-left: 16px; position:relative; }
+  .project-card details li::before{ content:'→'; position:absolute; left:0; color: var(--line); }
+  .project-card details li strong{ color: var(--paper); font-weight:600; }
   .project-card a.repo{
-    font-family: var(--font-mono); font-size: 0.75rem; margin-top: 6px;
+    font-family: var(--font-mono); font-size: 0.75rem; margin-top: auto;
     text-decoration: none; display:inline-flex; align-items:center; gap:6px;
   }
   .project-card a.repo::after{ content: '↗'; }
+  .project-card a.repo:hover{ text-decoration: underline; }
+  .filter-note{ font-family: var(--font-mono); font-size: 0.7rem; color: var(--line); margin-bottom: 18px; min-height: 1em; }
 
   /* ---------- CERTS ---------- */
   .cert-row{ display:flex; flex-wrap:wrap; gap: 22px; }
@@ -311,21 +381,11 @@
     50%{ filter: drop-shadow(0 0 6px rgba(242,166,90,0.55)); }
   }
 
-  .stack-group.active .chip{
+  .stack-group.active .chip, .stack-wrap.all .chip{
     opacity: 0; transform: translateY(10px);
     animation: chipIn .5s ease forwards;
   }
   @keyframes chipIn{ to{ opacity:1; transform: translateY(0); } }
-  .stack-group.active .chip:nth-child(1){ animation-delay: .02s; } .stack-group.active .chip:nth-child(2){ animation-delay: .05s; }
-  .stack-group.active .chip:nth-child(3){ animation-delay: .08s; } .stack-group.active .chip:nth-child(4){ animation-delay: .11s; }
-  .stack-group.active .chip:nth-child(5){ animation-delay: .14s; } .stack-group.active .chip:nth-child(6){ animation-delay: .17s; }
-  .stack-group.active .chip:nth-child(7){ animation-delay: .20s; } .stack-group.active .chip:nth-child(8){ animation-delay: .23s; }
-  .stack-group.active .chip:nth-child(9){ animation-delay: .26s; } .stack-group.active .chip:nth-child(10){ animation-delay: .29s; }
-  .stack-group.active .chip:nth-child(11){ animation-delay: .32s; } .stack-group.active .chip:nth-child(12){ animation-delay: .35s; }
-  .stack-group.active .chip:nth-child(13){ animation-delay: .38s; } .stack-group.active .chip:nth-child(14){ animation-delay: .41s; }
-  .stack-group.active .chip:nth-child(15){ animation-delay: .44s; } .stack-group.active .chip:nth-child(16){ animation-delay: .47s; }
-  .stack-group.active .chip:nth-child(17){ animation-delay: .50s; } .stack-group.active .chip:nth-child(18){ animation-delay: .53s; }
-  .stack-group.active .chip:nth-child(19){ animation-delay: .56s; } .stack-group.active .chip:nth-child(20){ animation-delay: .59s; }
 
   .project-card{ will-change: transform; transform-style: preserve-3d; }
 
@@ -352,18 +412,41 @@
     animation: ruleShift 4s linear infinite;
   }
   @keyframes ruleShift{ 0%{ background-position: 0% 0; } 100%{ background-position: -200% 0; } }
+
+  /* ---------- RESUME ---------- */
+  .resume-bar{ display:flex; flex-wrap:wrap; gap:14px 24px; align-items:center; justify-content:space-between; margin-bottom: 18px; }
+  .resume-meta{ font-family: var(--font-mono); font-size: 0.78rem; color: var(--line); line-height: 1.6; }
+  .resume-meta .v{ color: var(--paper); }
+  .resume-frame{
+    width:100%; height: min(85vh, 900px); min-height: 560px; display:block;
+    border: 1px solid var(--panel-border); background:#fff;
+  }
+  .resume-fallback{ display:none; font-size: 0.88rem; color: rgba(234,242,248,0.8); line-height: 1.55; }
+  @media (max-width: 720px){
+    .resume-frame{ display:none; }
+    .resume-fallback{ display:block; }
+  }
+
+  @media print{
+    nav, .progress, .cta-row, .diagram-wrap, .filter-row, .stack-tabs{ display:none !important; }
+    body{ background:#fff; color:#000; }
+    .reveal{ opacity:1; transform:none; }
+  }
 </style>
 </head>
 <body>
 
+<div class="progress" id="progress" aria-hidden="true"></div>
+
 <nav>
-  <div class="tag">PAB // REV.03</div>
+  <div class="tag">PAB // REV.04</div>
   <div class="navlinks">
     <a class="navlink" href="#stack">01 — Stack</a>
     <a class="navlink" href="#experience">02 — Experience</a>
     <a class="navlink" href="#projects">03 — Projects</a>
     <a class="navlink" href="#certs">04 — Certification</a>
-    <a class="navlink" href="#contact">05 — Contact</a>
+    <a class="navlink" href="#resume">05 — Resume</a>
+    <a class="navlink" href="#contact">06 — Contact</a>
   </div>
 </nav>
 
@@ -373,17 +456,22 @@
       <div class="drawing-no">DWG NO. PAB-2026-DEVOPS &nbsp;·&nbsp; SHEET 1 OF 1</div>
       <h1 class="name">Purandhar Achari<br>Banthikatla<span class="lastline">.</span></h1>
       <div class="role-line">
-        <span>AWS</span><span>Azure</span><span>GCP</span><span>Docker</span><span>Kubernetes</span><span>Jenkins</span><span>Terraform</span><span>GitHub Actions</span><span>Ansible</span>
+        <span>Azure DevOps</span><span>AWS</span><span>GCP</span><span>Docker</span><span>Kubernetes</span><span>Helm</span><span>Terraform</span><span>Jenkins</span><span>GitHub Actions</span><span>Ansible</span>
       </div>
-      <p class="hero-summary">AWS Certified Cloud Practitioner with hands-on DevOps experience automating CI/CD pipelines, containerizing services with Docker and Kubernetes/EKS, and provisioning infrastructure as code with Terraform across AWS and GCP — skilled in Linux and Python scripting, with monitoring via Prometheus and Grafana.</p>
+
+      <div class="now-pill"><span class="dot" aria-hidden="true"></span><span><span class="k">Now:</span> DevOps Engineer Intern at FastPix Solutions</span></div>
+
+      <p class="hero-summary"><strong>DevOps Engineer</strong> with 5 months of hands-on experience in Azure DevOps, AWS, CI/CD, Docker, Kubernetes, Helm, and Infrastructure as Code. Manages source-code workflows and CI/CD pipelines with Azure DevOps, builds Docker-based deployments, and runs Kubernetes and Helm deployments in staging. Experienced in monitoring and alerting with Prometheus and Grafana, and previously worked on AWS, Jenkins, GitHub Actions, Terraform, Linux, and scripting at RR Technosoft. <strong>AWS Certified Cloud Practitioner.</strong></p>
+
       <div class="cta-row">
         <a class="btn solid" href="https://www.linkedin.com/in/purandhar-achari-banthi-katla-726a73265" target="_blank" rel="noopener">Connect on LinkedIn</a>
         <a class="btn" href="https://github.com/PurandharAchariBanthikatla" target="_blank" rel="noopener">View GitHub ↗</a>
+        <a class="btn" href="Purandhar_Achari_DevOps_Engineer.pdf" download>Download resume</a>
         <button class="btn" id="copyEmailBtn">Copy email</button>
       </div>
 
       <div class="titleblock">
-        <div class="cell"><span class="k">Based in</span><span class="v">Andhra Pradesh, IN</span></div>
+        <div class="cell"><span class="k">Based in</span><span class="v">Hyderabad, IN</span></div>
         <div class="cell"><span class="k">Focus</span><span class="v">DevOps / Cloud / MLOps</span></div>
         <div class="cell"><span class="k">Education</span><span class="v">B.Tech CSE, May 2026</span></div>
         <div class="cell"><span class="k">Status</span><span class="v">Open to opportunities</span></div>
@@ -404,9 +492,9 @@
           <text x="170" y="177" text-anchor="middle">PAB</text>
           <text x="170" y="189" text-anchor="middle" font-size="7">ENGINEER</text>
         </g>
-        <g class="node" tabindex="0" role="button" aria-label="Cloud — AWS, GCP, Azure, jump to Tech Stack"><title>Cloud — AWS · GCP · Azure</title><circle cx="70" cy="70" r="26"/><text x="70" y="68" text-anchor="middle">CLOUD</text><text x="70" y="78" text-anchor="middle" font-size="7">AWS·GCP</text></g>
-        <g class="node" tabindex="0" role="button" aria-label="Containers — Docker, Kubernetes, jump to Tech Stack"><title>Containers — Docker · Kubernetes</title><circle cx="270" cy="70" r="26"/><text x="270" y="68" text-anchor="middle">CONTAINERS</text><text x="270" y="78" text-anchor="middle" font-size="7">DOCKER·K8S</text></g>
-        <g class="node" tabindex="0" role="button" aria-label="CI/CD — Jenkins, GitHub Actions, jump to Experience"><title>CI/CD — Jenkins · GitHub Actions</title><circle cx="70" cy="290" r="26"/><text x="70" y="288" text-anchor="middle">CI/CD</text><text x="70" y="298" text-anchor="middle" font-size="7">JENKINS·GHA</text></g>
+        <g class="node" tabindex="0" role="button" aria-label="Cloud — AWS, Azure, GCP, jump to Tech Stack"><title>Cloud — AWS · Azure · GCP</title><circle cx="70" cy="70" r="26"/><text x="70" y="68" text-anchor="middle">CLOUD</text><text x="70" y="78" text-anchor="middle" font-size="7">AWS·AZ·GCP</text></g>
+        <g class="node" tabindex="0" role="button" aria-label="Containers — Docker, Kubernetes, Helm, jump to Tech Stack"><title>Containers — Docker · Kubernetes · Helm</title><circle cx="270" cy="70" r="26"/><text x="270" y="68" text-anchor="middle">CONTAINERS</text><text x="270" y="78" text-anchor="middle" font-size="7">DOCKER·K8S</text></g>
+        <g class="node" tabindex="0" role="button" aria-label="CI/CD — Azure DevOps, Jenkins, GitHub Actions, jump to Experience"><title>CI/CD — Azure DevOps · Jenkins · GitHub Actions</title><circle cx="70" cy="290" r="26"/><text x="70" y="288" text-anchor="middle">CI/CD</text><text x="70" y="298" text-anchor="middle" font-size="7">ADO·JENKINS</text></g>
         <g class="node" tabindex="0" role="button" aria-label="Infrastructure as Code — Terraform, jump to Tech Stack"><title>IaC — Terraform</title><circle cx="270" cy="290" r="26"/><text x="270" y="288" text-anchor="middle">IaC</text><text x="270" y="298" text-anchor="middle" font-size="7">TERRAFORM</text></g>
       </svg>
     </div>
@@ -416,40 +504,45 @@
 <section id="stack">
   <div class="section-head"><span class="idx">01</span><h2>Tech Stack</h2><div class="rule"></div></div>
   <div class="panel reveal">
-    <div class="stack-tabs">
-      <button class="tab active" data-group="cloud">Cloud &amp; Networking</button>
-      <button class="tab" data-group="containers">Containers &amp; Orchestration</button>
-      <button class="tab" data-group="cicd">CI/CD &amp; DevSecOps</button>
-      <button class="tab" data-group="iac">Infrastructure as Code</button>
-      <button class="tab" data-group="lang">Languages &amp; Scripting</button>
-      <button class="tab" data-group="mon">Monitoring &amp; Security</button>
+    <div class="stack-tabs" role="group" aria-label="Filter tech stack by category">
+      <button class="tab active" data-group="cloud" aria-pressed="true">Cloud &amp; Networking</button>
+      <button class="tab" data-group="containers" aria-pressed="false">Containers &amp; Orchestration</button>
+      <button class="tab" data-group="cicd" aria-pressed="false">CI/CD &amp; DevSecOps</button>
+      <button class="tab" data-group="iac" aria-pressed="false">Infrastructure as Code</button>
+      <button class="tab" data-group="lang" aria-pressed="false">Languages &amp; Scripting</button>
+      <button class="tab" data-group="mon" aria-pressed="false">Monitoring &amp; Security</button>
+      <button class="tab" data-group="all" aria-pressed="false">Show all</button>
     </div>
 
-    <div class="stack-group active" data-group="cloud">
-      <div class="chip">AWS EC2</div><div class="chip">AWS S3</div><div class="chip">AWS VPC</div><div class="chip">AWS IAM</div>
-      <div class="chip">AWS RDS</div><div class="chip">Route 53</div><div class="chip">Lambda</div><div class="chip">CloudWatch</div>
-      <div class="chip">ECS</div><div class="chip">EKS</div><div class="chip">CodePipeline</div><div class="chip">CloudFormation</div>
-      <div class="chip">GCP Compute Engine</div><div class="chip">Cloud Storage</div><div class="chip">GCP IAM</div><div class="chip">GKE</div>
-      <div class="chip">Pub/Sub</div><div class="chip">Cloud Load Balancing</div><div class="chip">Cloud Functions</div><div class="chip">Cloud Build</div>
-      <div class="chip">Azure Virtual Machines</div><div class="chip">Azure VNet</div><div class="chip">Azure Blob Storage</div><div class="chip">Azure Active Directory</div>
-      <div class="chip">Azure SQL Database</div><div class="chip">AKS</div><div class="chip">Azure DevOps</div><div class="chip">Azure Functions</div><div class="chip">Azure Monitor</div>
-    </div>
-    <div class="stack-group" data-group="containers">
-      <div class="chip">Docker</div><div class="chip">Kubernetes</div><div class="chip">Pods</div><div class="chip">Deployments</div>
-    </div>
-    <div class="stack-group" data-group="cicd">
-      <div class="chip">Jenkins</div><div class="chip">GitHub Actions</div><div class="chip">AWS CodePipeline</div>
-      <div class="chip">Cloud Build</div><div class="chip">Git / GitHub</div><div class="chip">Agile / SDLC</div>
-    </div>
-    <div class="stack-group" data-group="iac">
-      <div class="chip">Terraform (AWS)</div><div class="chip">Terraform (GCP)</div><div class="chip">Ansible</div><div class="chip">CloudFormation</div>
-    </div>
-    <div class="stack-group" data-group="lang">
-      <div class="chip">Linux</div><div class="chip">Python</div><div class="chip">Shell Scripting</div>
-    </div>
-    <div class="stack-group" data-group="mon">
-      <div class="chip">Prometheus</div><div class="chip">Grafana</div><div class="chip">Cloud Monitoring</div>
-      <div class="chip">AWS IAM Policies</div><div class="chip">GCP IAM Policies</div>
+    <div class="stack-wrap" id="stackWrap">
+      <div class="stack-group active" data-group="cloud" data-label="Cloud &amp; Networking">
+        <div class="chip">AWS EC2</div><div class="chip">AWS S3</div><div class="chip">AWS VPC</div><div class="chip">AWS IAM</div>
+        <div class="chip">AWS RDS</div><div class="chip">Route 53</div><div class="chip">Lambda</div><div class="chip">CloudWatch</div>
+        <div class="chip">ECS</div><div class="chip">EKS</div><div class="chip">CodePipeline</div><div class="chip">CloudFormation</div>
+        <div class="chip">GCP Compute Engine</div><div class="chip">Cloud Storage</div><div class="chip">GCP IAM</div><div class="chip">GKE</div>
+        <div class="chip">Pub/Sub</div><div class="chip">Cloud Load Balancing</div><div class="chip">Cloud Functions</div><div class="chip">Cloud Build</div>
+        <div class="chip">Azure Virtual Machines</div><div class="chip">Azure VNet</div><div class="chip">Azure Blob Storage</div><div class="chip">Microsoft Entra ID</div>
+        <div class="chip">Azure SQL Database</div><div class="chip">AKS</div><div class="chip">Azure DevOps</div><div class="chip">Azure Functions</div><div class="chip">Azure Monitor</div>
+      </div>
+      <div class="stack-group" data-group="containers" data-label="Containers &amp; Orchestration">
+        <div class="chip">Docker</div><div class="chip">Kubernetes</div><div class="chip">Helm</div><div class="chip">Pods</div><div class="chip">Deployments</div><div class="chip">Services</div>
+      </div>
+      <div class="stack-group" data-group="cicd" data-label="CI/CD &amp; DevSecOps">
+        <div class="chip">Azure DevOps</div><div class="chip">Azure Repos</div><div class="chip">Azure Pipelines</div>
+        <div class="chip">Jenkins</div><div class="chip">GitHub Actions</div><div class="chip">AWS CodePipeline</div>
+        <div class="chip">Cloud Build</div><div class="chip">CI/CD Pipelines</div><div class="chip">Git / GitHub</div><div class="chip">Agile / SDLC</div>
+      </div>
+      <div class="stack-group" data-group="iac" data-label="Infrastructure as Code">
+        <div class="chip">Terraform (AWS)</div><div class="chip">Terraform (GCP)</div><div class="chip">Terraform (Azure)</div><div class="chip">Ansible</div><div class="chip">CloudFormation</div>
+      </div>
+      <div class="stack-group" data-group="lang" data-label="Languages &amp; Scripting">
+        <div class="chip">Linux</div><div class="chip">Linux Administration</div><div class="chip">Python</div><div class="chip">Shell Scripting</div><div class="chip">YAML</div>
+      </div>
+      <div class="stack-group" data-group="mon" data-label="Monitoring &amp; Security">
+        <div class="chip">Prometheus</div><div class="chip">Grafana</div><div class="chip">Loki</div><div class="chip">OpenTelemetry</div>
+        <div class="chip">AWS CloudWatch</div><div class="chip">Cloud Monitoring</div>
+        <div class="chip">AWS IAM Policies</div><div class="chip">GCP IAM Policies</div><div class="chip">RBAC</div>
+      </div>
     </div>
   </div>
 </section>
@@ -457,20 +550,35 @@
 <section id="experience">
   <div class="section-head"><span class="idx">02</span><h2>Professional Experience</h2><div class="rule"></div></div>
   <div class="pipeline">
-    <div class="stage reveal">
-      <div class="when">MAR 2026 — AUG 2026</div>
+
+    <div class="stage current reveal">
+      <div class="when">SEPTEMBER 2026 — PRESENT <span class="badge">CURRENT</span></div>
       <h3>DevOps Engineer Intern</h3>
+      <div class="org">FastPix Solutions Pvt. Ltd., Hyderabad</div>
+      <ul>
+        <li>Managed source code and repository workflows using <strong>Azure DevOps</strong>, including <strong>branch management</strong>, <strong>code integration</strong>, and development workflows</li>
+        <li>Designed and maintained <strong>Azure DevOps CI/CD pipelines</strong> to automate <strong>build</strong>, <strong>containerization</strong>, and <strong>deployment</strong> workflows across <strong>staging environments</strong></li>
+        <li>Built and managed <strong>Docker</strong> containers and performed <strong>Kubernetes</strong> deployments using <strong>Helm</strong>, supporting application releases and <strong>configuration management</strong> in staging</li>
+        <li>Configured <strong>Prometheus</strong> and <strong>Grafana</strong> for <strong>monitoring</strong>, <strong>alerting</strong>, and <strong>dashboard visualization</strong>, tracking application and <strong>Kubernetes</strong> metrics</li>
+        <li>Troubleshot and supported <strong>Azure DevOps</strong>, <strong>Docker</strong>, <strong>Kubernetes</strong>, <strong>Helm</strong>, and <strong>monitoring</strong>-related issues, helping maintain reliable <strong>staging deployments</strong></li>
+      </ul>
+      <div class="tools"><span>Azure DevOps</span><span>Docker</span><span>Kubernetes</span><span>Helm</span><span>Prometheus</span><span>Grafana</span></div>
+    </div>
+
+    <div class="stage reveal">
+      <div class="when">MAY 2026 — AUGUST 2026</div>
+      <h3>AWS DevOps Engineer Intern</h3>
       <div class="org">RR Technosoft, Hyderabad</div>
       <ul>
-        <li>Implemented CI/CD pipelines using Jenkins and GitHub Actions, streamlining application delivery and cutting manual deployment steps</li>
-        <li>Containerized application services with Docker and supported deployments on Kubernetes/EKS for consistent, repeatable releases</li>
-        <li>Provisioned AWS infrastructure (EC2, VPC, IAM, S3, RDS, CloudWatch) using Terraform for version-controlled deployments</li>
-        <li>Applied IAM policies to support secure, compliant cloud deployments</li>
-        <li>Configured Prometheus and Grafana dashboards for real-time application and infrastructure monitoring</li>
-        <li>Automated operational tasks using Linux and Python scripting to reduce manual effort</li>
-        <li>Worked in an AWS cloud DevOps environment, participating in Agile ceremonies and code reviews</li>
+        <li>Implemented <strong>DevOps</strong> practices for the <strong>Student LMS</strong> project, contributing to <strong>source-code management</strong>, <strong>CI/CD</strong>, <strong>containerization</strong>, <strong>deployment</strong>, <strong>monitoring</strong>, and <strong>troubleshooting</strong> activities</li>
+        <li>Created and maintained <strong>CI/CD pipelines</strong> using <strong>Jenkins</strong> and <strong>GitHub Actions</strong>, supporting <strong>automated software delivery</strong> workflows</li>
+        <li>Built and managed <strong>Docker</strong> images and containers and worked with <strong>Kubernetes Pods</strong>, <strong>Deployments</strong>, and <strong>Services</strong> for containerized application deployment</li>
+        <li>Provisioned and managed cloud infrastructure using <strong>AWS</strong> and <strong>Terraform</strong>, applying <strong>Infrastructure as Code (IaC)</strong> practices</li>
+        <li>Automated routine DevOps tasks using <strong>Shell</strong> and <strong>Python</strong> scripting and performed <strong>monitoring</strong>, <strong>troubleshooting</strong>, and issue resolution for applications and infrastructure</li>
       </ul>
+      <div class="tools"><span>AWS</span><span>Terraform</span><span>Jenkins</span><span>GitHub Actions</span><span>Docker</span><span>Kubernetes</span><span>Python</span><span>Shell</span></div>
     </div>
+
     <div class="stage reveal">
       <div class="when">MAY 2026</div>
       <h3>B.Tech — Computer Science Engineering &amp; Business Systems</h3>
@@ -484,28 +592,89 @@
 
 <section id="projects">
   <div class="section-head"><span class="idx">03</span><h2>Projects</h2><div class="rule"></div></div>
-  <div class="project-grid">
-    <div class="project-card reveal">
-      <div class="pnum">SHEET 01</div>
-      <h3>Student LMS</h3>
-      <p>Full-featured Learning Management System for managing courses, learners, and progress tracking. AWS infrastructure (EC2, VPC, S3, RDS) provisioned with Terraform; containerized with Docker and implemented Kubernetes for orchestration; CI/CD via Jenkins and GitHub Actions; Prometheus/Grafana dashboards and least-privilege IAM policies.</p>
-      <div class="tags"><span>Terraform</span><span>Docker</span><span>Kubernetes</span><span>Jenkins</span><span>GitHub Actions</span><span>Prometheus</span></div>
-      <a class="repo" href="https://github.com/PurandharAchariBanthikatla/Student-Lms-Project.git" target="_blank" rel="noopener">github.com/.../Student-Lms-Project</a>
-    </div>
-    <div class="project-card reveal">
-      <div class="pnum">SHEET 02</div>
-      <h3>UPSTOCK — Crypto Trading Platform</h3>
-      <p>Phased microservices platform (API gateway, ledger, wallet services) built on Python with FastAPI, each service containerized with Docker. Service-to-service auth and structured logging via structlog; Alembic-managed PostgreSQL schema migrations. Deployment stack implemented with RDS PostgreSQL, Docker, Kubernetes, Terraform, Ansible, and GitHub Actions for CI/CD-style releases.</p>
-      <div class="tags"><span>Python</span><span>FastAPI</span><span>Docker</span><span>Kubernetes</span><span>RDS PostgreSQL</span><span>Terraform</span><span>Ansible</span><span>GitHub Actions</span></div>
-      <a class="repo" href="https://github.com/PurandharAchariBanthikatla/upstok-trading.git" target="_blank" rel="noopener">github.com/.../upstok-trading</a>
-    </div>
-    <div class="project-card reveal">
-      <div class="pnum">SHEET 03</div>
-      <h3>Dior — Luxury E-Commerce Platform</h3>
-      <p>Responsive luxury fashion e-commerce site with full product catalog, cart, checkout, and returns flow using HTML, CSS, and JavaScript. Git-managed, iterative feature-based development. Deployment stack implemented with RDS PostgreSQL, Docker, Kubernetes, Terraform, Ansible, and GitHub Actions.</p>
-      <div class="tags"><span>JavaScript</span><span>Docker</span><span>Kubernetes</span><span>RDS PostgreSQL</span><span>Terraform</span><span>Ansible</span><span>GitHub Actions</span></div>
-      <a class="repo" href="https://github.com/PurandharAchariBanthikatla/DIOR-LUXURY_STORE" target="_blank" rel="noopener">github.com/.../DIOR-LUXURY_STORE</a>
-    </div>
+
+  <div class="filter-row" role="group" aria-label="Filter projects">
+    <button class="tab active" data-filter="all" aria-pressed="true">All projects</button>
+    <button class="tab" data-filter="kubernetes" aria-pressed="false">Kubernetes</button>
+    <button class="tab" data-filter="cicd" aria-pressed="false">CI/CD</button>
+    <button class="tab" data-filter="fullstack" aria-pressed="false">Full-stack</button>
+  </div>
+  <div class="filter-note" id="filterNote" aria-live="polite"></div>
+
+  <div class="project-grid" id="projectGrid">
+
+    <article class="project-card reveal" data-cat="kubernetes cicd">
+      <div class="pnum"><span>SHEET 01</span></div>
+      <h3>UPSTOK — Trading Platform</h3>
+      <p>Microservices-based trading platform built with Python and FastAPI, split into services for authentication, wallet and ledger, market data, assets, and order processing.</p>
+      <div class="tags"><span>Python</span><span>FastAPI</span><span>PostgreSQL</span><span>Redis</span><span>Docker</span><span>Kubernetes</span><span>GitHub Actions</span></div>
+      <details>
+        <summary>What I built</summary>
+        <ul>
+          <li>Modular services across <strong>5 domains</strong>: authentication, wallet/ledger, market data, assets, and order processing</li>
+          <li><strong>PostgreSQL</strong> for persistent data and <strong>Redis</strong> for caching across wallet, ledger, and market-data workflows</li>
+          <li>Services containerized with <strong>Docker</strong> and orchestrated on <strong>Kubernetes</strong></li>
+          <li><strong>CI/CD pipelines</strong> in <strong>GitHub Actions</strong> to automate build and deployment across the microservices</li>
+          <li><strong>REST APIs</strong> and <strong>event-driven services</strong> for order books, market-data simulation, and user authentication</li>
+          <li>Health monitoring and a <strong>100% pass rate across 91 automated tests</strong></li>
+        </ul>
+      </details>
+      <a class="repo" href="https://github.com/PurandharAchariBanthikatla/TRADING-PLATFORM.git" target="_blank" rel="noopener">github.com/.../TRADING-PLATFORM</a>
+    </article>
+
+    <article class="project-card reveal" data-cat="kubernetes cicd fullstack">
+      <div class="pnum"><span>SHEET 02</span></div>
+      <h3>RR Technosoft LMS</h3>
+      <p>Enterprise learning management system on Spring Boot 3.3 (Java 21) and Next.js 15, covering courses, assignments, quizzes, attendance, live classes, certificates, placements, finance, and administration.</p>
+      <div class="tags"><span>Spring Boot</span><span>Java 21</span><span>Next.js 15</span><span>PostgreSQL 16</span><span>Redis 7</span><span>Docker</span><span>Kubernetes</span><span>Jenkins</span><span>Prometheus</span><span>Grafana</span></div>
+      <details>
+        <summary>What I built</summary>
+        <ul>
+          <li>Enterprise <strong>monolithic LMS</strong> using <strong>Spring Boot 3.3 (Java 21)</strong> and <strong>Next.js 15 (TypeScript)</strong> covering <strong>9 modules</strong></li>
+          <li>Configured <strong>PostgreSQL 16</strong> and <strong>Redis 7</strong> for data persistence and caching</li>
+          <li>Containerized with <strong>Docker</strong> and deployed on <strong>Kubernetes</strong> using Pods, Deployments, and Services</li>
+          <li>A <strong>3-stage CI/CD workflow</strong> in <strong>Jenkins</strong> that automates build, Docker image creation, and deployment</li>
+          <li><strong>Prometheus</strong> and <strong>Grafana</strong> dashboards for application and infrastructure monitoring</li>
+        </ul>
+      </details>
+      <a class="repo" href="https://github.com/PurandharAchariBanthikatla/RR-Technosoft-LMS" target="_blank" rel="noopener">github.com/.../RR-Technosoft-LMS</a>
+    </article>
+
+    <article class="project-card reveal" data-cat="kubernetes cicd">
+      <div class="pnum"><span>SHEET 03</span></div>
+      <h3>VELORA — Premium Fashion E-Commerce</h3>
+      <p>Premium fashion e-commerce application deployed with Docker, Kubernetes, and Helm, with CI/CD automation, monitoring, database backups, and production-ready infrastructure for scalable, reliable delivery.</p>
+      <div class="tags"><span>Docker</span><span>Kubernetes</span><span>Helm</span><span>GitHub Actions</span><span>PostgreSQL</span><span>Redis</span><span>AWS</span></div>
+      <details>
+        <summary>What I built</summary>
+        <ul>
+          <li><strong>Containerization</strong> of the application with <strong>Docker</strong></li>
+          <li><strong>CI/CD automation</strong> with <strong>GitHub Actions</strong></li>
+          <li><strong>Kubernetes deployments</strong> packaged with <strong>Helm</strong>, including <strong>HPA</strong>, <strong>Ingress</strong>, and networking</li>
+          <li><strong>PostgreSQL</strong> and <strong>Redis</strong> backing services, with <strong>database backups</strong></li>
+          <li><strong>Monitoring</strong> and production-ready infrastructure on <strong>AWS</strong></li>
+        </ul>
+      </details>
+      <a class="repo" href="https://github.com/PurandharAchariBanthikatla/VELORA_PREMIUM_FASHION" target="_blank" rel="noopener">github.com/.../VELORA_PREMIUM_FASHION</a>
+    </article>
+
+    <article class="project-card reveal" data-cat="fullstack">
+      <div class="pnum"><span>SHEET 04</span></div>
+      <h3>FreshCart — Grocery E-Commerce</h3>
+      <p>Full-stack e-commerce platform for online grocery shopping, with secure authentication, product and category management, cart and checkout, order tracking, payments, and an admin dashboard.</p>
+      <div class="tags"><span>Full-stack</span><span>REST API</span><span>Authentication</span><span>Payments</span><span>Admin dashboard</span><span>Responsive UI</span></div>
+      <details>
+        <summary>What I built</summary>
+        <ul>
+          <li><strong>Secure authentication</strong> and <strong>user profiles</strong></li>
+          <li><strong>Product and category management</strong> with an <strong>admin dashboard</strong></li>
+          <li><strong>Cart and checkout</strong> flow with <strong>payments</strong> and <strong>order tracking</strong></li>
+          <li><strong>REST APIs</strong> connecting the frontend, backend, and database, with a <strong>responsive UI</strong></li>
+        </ul>
+      </details>
+      <a class="repo" href="https://github.com/PurandharAchariBanthikatla/FRESHCART" target="_blank" rel="noopener">github.com/.../FRESHCART</a>
+    </article>
+
   </div>
 </section>
 
@@ -529,8 +698,23 @@
   </div>
 </section>
 
+<section id="resume">
+  <div class="section-head"><span class="idx">05</span><h2>Resume</h2><div class="rule"></div></div>
+  <div class="panel reveal">
+    <div class="resume-bar">
+      <div class="resume-meta"><span class="v">Purandhar_Achari_DevOps_Engineer.pdf</span><br>DevOps Engineer &nbsp;·&nbsp; 2 pages &nbsp;·&nbsp; PDF</div>
+      <div class="cta-row" style="margin-top:0;">
+        <a class="btn solid" href="Purandhar_Achari_DevOps_Engineer.pdf" download>Download PDF</a>
+        <a class="btn" href="Purandhar_Achari_DevOps_Engineer.pdf" target="_blank" rel="noopener">Open in new tab ↗</a>
+      </div>
+    </div>
+    <iframe class="resume-frame" src="Purandhar_Achari_DevOps_Engineer.pdf#view=FitH" title="Resume of Purandhar Achari Banthikatla (PDF)" loading="lazy"></iframe>
+    <p class="resume-fallback">PDF preview isn't available on small screens. Use Download PDF or Open in new tab to read the full resume.</p>
+  </div>
+</section>
+
 <section id="contact">
-  <div class="section-head"><span class="idx">05</span><h2>Contact</h2><div class="rule"></div></div>
+  <div class="section-head"><span class="idx">06</span><h2>Contact</h2><div class="rule"></div></div>
   <div class="panel reveal" style="display:flex; flex-wrap:wrap; gap:28px; align-items:center; justify-content:space-between;">
     <div>
       <div class="eyebrow">Reach out</div>
@@ -556,21 +740,70 @@
 </footer>
 
 <script>
-  // Tab switching for tech stack
-  document.querySelectorAll('.tab').forEach(tab=>{
+  // ---------- Scroll progress + active nav link ----------
+  const progress = document.getElementById('progress');
+  const navLinks = Array.from(document.querySelectorAll('.navlink'));
+  const sections = navLinks.map(l => document.querySelector(l.getAttribute('href')));
+  function onScroll(){
+    const h = document.documentElement;
+    const max = h.scrollHeight - h.clientHeight;
+    progress.style.width = (max > 0 ? (h.scrollTop / max) * 100 : 0) + '%';
+    let idx = -1;
+    sections.forEach((s,i)=>{ if(s && s.getBoundingClientRect().top < window.innerHeight * 0.4) idx = i; });
+    navLinks.forEach((l,i)=> l.classList.toggle('current', i === idx));
+  }
+  window.addEventListener('scroll', onScroll, {passive:true});
+  onScroll();
+
+  // ---------- Tech stack tabs (with "Show all") ----------
+  const stackWrap = document.getElementById('stackWrap');
+  const stackGroups = Array.from(document.querySelectorAll('.stack-group'));
+  function staggerChips(scope){
+    scope.forEach(g=>{
+      g.querySelectorAll('.chip').forEach((c,i)=>{ c.style.animationDelay = Math.min(i * 0.03, 0.7) + 's'; });
+    });
+  }
+  staggerChips(stackGroups);
+
+  document.querySelectorAll('.stack-tabs .tab').forEach(tab=>{
     tab.addEventListener('click', ()=>{
-      document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
-      document.querySelectorAll('.stack-group').forEach(g=>g.classList.remove('active'));
-      tab.classList.add('active');
-      document.querySelector('.stack-group[data-group="'+tab.dataset.group+'"]').classList.add('active');
+      document.querySelectorAll('.stack-tabs .tab').forEach(t=>{ t.classList.remove('active'); t.setAttribute('aria-pressed','false'); });
+      tab.classList.add('active'); tab.setAttribute('aria-pressed','true');
+      stackGroups.forEach(g=>g.classList.remove('active'));
+      if(tab.dataset.group === 'all'){
+        stackWrap.classList.add('all');
+      } else {
+        stackWrap.classList.remove('all');
+        document.querySelector('.stack-group[data-group="'+tab.dataset.group+'"]').classList.add('active');
+      }
+      // restart chip animation
+      stackWrap.querySelectorAll('.chip').forEach(c=>{ c.style.animation='none'; void c.offsetWidth; c.style.animation=''; });
     });
   });
 
-  // Hero diagram node -> jump to related section
-  const nodeMap = {0:'contact',1:'stack',2:'stack',3:'experience',4:'stack'};
+  // ---------- Project filters ----------
+  const cards = Array.from(document.querySelectorAll('.project-card'));
+  const filterNote = document.getElementById('filterNote');
+  const filterLabels = {all:'', kubernetes:'Projects deployed on Kubernetes', cicd:'Projects with CI/CD automation', fullstack:'Full-stack applications'};
+  document.querySelectorAll('.filter-row .tab').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      document.querySelectorAll('.filter-row .tab').forEach(b=>{ b.classList.remove('active'); b.setAttribute('aria-pressed','false'); });
+      btn.classList.add('active'); btn.setAttribute('aria-pressed','true');
+      const f = btn.dataset.filter;
+      let shown = 0;
+      cards.forEach(c=>{
+        const match = f === 'all' || c.dataset.cat.split(' ').includes(f);
+        c.hidden = !match;
+        if(match){ shown++; c.classList.add('in'); }
+      });
+      filterNote.textContent = f === 'all' ? '' : filterLabels[f] + ' — showing ' + shown + ' of ' + cards.length;
+    });
+  });
+
+  // ---------- Hero diagram node -> jump to related section ----------
   document.querySelectorAll('.blueprint .node').forEach((node,i)=>{
     const jump = ()=>{
-      const target = i===1||i===4 ? 'stack' : (i===2 ? 'stack' : (i===3 ? 'experience' : 'contact'));
+      const target = i===0 ? 'contact' : (i===3 ? 'experience' : 'stack');
       const el = document.getElementById(target);
       if(el) el.scrollIntoView({behavior:'smooth'});
     };
@@ -580,7 +813,7 @@
     });
   });
 
-  // Copy email button
+  // ---------- Copy email button ----------
   const copyBtn = document.getElementById('copyEmailBtn');
   copyBtn.addEventListener('click', async ()=>{
     try{
@@ -593,15 +826,15 @@
     }
   });
 
-  // Scroll reveal
+  // ---------- Scroll reveal ----------
   const io = new IntersectionObserver((entries)=>{
     entries.forEach(entry=>{
       if(entry.isIntersecting){ entry.target.classList.add('in'); io.unobserve(entry.target); }
     });
-  }, {threshold: 0.15});
+  }, {threshold: 0.1});
   document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 
-  // Cursor-follow glow in hero
+  // ---------- Cursor-follow glow in hero ----------
   const heroEl = document.querySelector('.hero');
   if(heroEl){
     heroEl.addEventListener('mousemove', (e)=>{
@@ -611,15 +844,18 @@
     });
   }
 
-  // Subtle 3D tilt on project cards
-  document.querySelectorAll('.project-card').forEach(card=>{
+  // ---------- Subtle 3D tilt on project cards (off while a card is expanded) ----------
+  cards.forEach(card=>{
     card.addEventListener('mousemove', (e)=>{
+      if(card.querySelector('details[open]')) return;
       const r = card.getBoundingClientRect();
       const px = (e.clientX - r.left) / r.width - 0.5;
       const py = (e.clientY - r.top) / r.height - 0.5;
       card.style.transform = `translateY(-3px) rotateX(${(-py*4).toFixed(2)}deg) rotateY(${(px*4).toFixed(2)}deg)`;
     });
     card.addEventListener('mouseleave', ()=>{ card.style.transform = ''; });
+    const d = card.querySelector('details');
+    if(d) d.addEventListener('toggle', ()=>{ card.style.transform = ''; });
   });
 </script>
 
